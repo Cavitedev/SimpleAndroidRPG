@@ -1,4 +1,4 @@
-package com.example.simplerpg.ui;
+package com.example.simplerpg.ui.heroProperties;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,10 +11,10 @@ import com.example.simplerpg.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HeroStats#newInstance} factory method to
+ * Use the {@link HeroAbilities#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HeroStats extends Fragment {
+public class HeroAbilities extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,7 +25,7 @@ public class HeroStats extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public HeroStats() {
+    public HeroAbilities() {
         // Required empty public constructor
     }
 
@@ -35,11 +35,11 @@ public class HeroStats extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment HeroStats.
+     * @return A new instance of fragment HeroHabilities.
      */
     // TODO: Rename and change types and number of parameters
-    public static HeroStats newInstance(String param1, String param2) {
-        HeroStats fragment = new HeroStats();
+    public static HeroAbilities newInstance(String param1, String param2) {
+        HeroAbilities fragment = new HeroAbilities();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,6 +60,6 @@ public class HeroStats extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hero_stats, container, false);
+        return inflater.inflate(R.layout.fragment_hero_habilities, container, false);
     }
 }

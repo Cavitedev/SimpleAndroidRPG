@@ -2,6 +2,7 @@ package com.example.simplerpg.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,5 +21,9 @@ public class MainActivity extends AppCompatActivity {
     private void goToHeroProfile() {
         Intent heroProfile = new Intent(this, HeroProfile.class);
         startActivity(heroProfile);
+    }
+
+    public void button(View view) {
+        goToHeroProfile();
     }
 }

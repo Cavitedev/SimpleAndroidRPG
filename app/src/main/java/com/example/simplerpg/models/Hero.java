@@ -1,6 +1,12 @@
 package com.example.simplerpg.models;
 
-public class Hero {
+import android.os.Build;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.RequiresApi;
+
+public class Hero implements Parcelable {
 
     //Higher means more xp to get a hero to a lvl
     private static final double HERO_LVL_PROGRESSION_RATE = 7;
@@ -12,6 +18,7 @@ public class Hero {
     private Stats stats;
     private int xp;
 
+
     public Hero(int id, String name, String image, Stats stats, int xp) {
         this.id = id;
         this.name = name;
@@ -19,6 +26,26 @@ public class Hero {
         this.stats = stats;
         this.xp = xp;
     }
+
+    protected Hero(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        image = in.readString();
+        stats = in.readParcelable(Stats.class.getClassLoader());
+        xp = in.readInt();
+    }
+
+    public static final Creator<Hero> CREATOR = new Creator<Hero>() {
+        @Override
+        public Hero createFromParcel(Parcel in) {
+            return new Hero(in);
+        }
+
+        @Override
+        public Hero[] newArray(int size) {
+            return new Hero[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -58,5 +85,33 @@ public class Hero {
         int xpNextLvl = (int) (HERO_LVL_PROGRESSION_RATE * Math.pow(nextLvl, 2));
 
         return xpNextLvl - xp;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeString(image);
+        dest.writeTypedObject(stats, 5);
+        //dest.writeParcelable(stats, 5);
+        dest.writeInt(xp);
+    }
+
+    @Override
+    public String toString() {
+        return "Hero{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", image='" + image + '\'' +
+                ", stats=" + stats +
+                ", xp=" + xp +
+                '}';
     }
 }
