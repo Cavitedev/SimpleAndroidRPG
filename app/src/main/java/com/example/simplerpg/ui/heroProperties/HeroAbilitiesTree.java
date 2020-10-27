@@ -60,6 +60,6 @@ public class HeroAbilitiesTree extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hero_habilities_tree, container, false);
+        return inflater.inflate(R.layout.ability_list_item, container, false);
     }
 }

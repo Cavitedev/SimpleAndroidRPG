@@ -28,7 +28,6 @@ import java.util.ArrayList;
 
 public class HeroStats extends Fragment {
 
-    private Bundle bundle;
 
     private TextView strengthTextView, dexterityTextView, intelligenceTextView, constitutionTextView, speedTextView, lvlTextView, xpTillNextLvlTextView;
     private ProgressBar lvlProgressBar;
@@ -37,7 +36,6 @@ public class HeroStats extends Fragment {
 
     public HeroStats() {
         // Required empty public constructor
-
     }
 
     public static HeroStats newInstance(Bundle bundle) {

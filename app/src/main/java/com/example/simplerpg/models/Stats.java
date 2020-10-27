@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Stats implements Parcelable {
+    private int id;
+
     private int strength, dexterity, intelligence, constitution, speed;
 
     public Stats() {
@@ -23,6 +25,7 @@ public class Stats implements Parcelable {
     }
 
     protected Stats(Parcel in) {
+        id = in.readInt();
         strength = in.readInt();
         dexterity = in.readInt();
         intelligence = in.readInt();
@@ -41,6 +44,25 @@ public class Stats implements Parcelable {
             return new Stats[size];
         }
     };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeInt(strength);
+        dest.writeInt(dexterity);
+        dest.writeInt(intelligence);
+        dest.writeInt(constitution);
+        dest.writeInt(speed);
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public int getStrength() {
         return strength;
@@ -62,18 +84,28 @@ public class Stats implements Parcelable {
         return speed;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(strength);
-        dest.writeInt(dexterity);
-        dest.writeInt(intelligence);
-        dest.writeInt(constitution);
-        dest.writeInt(speed);
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    public void setDexterity(int dexterity) {
+        this.dexterity = dexterity;
+    }
+
+    public void setIntelligence(int intelligence) {
+        this.intelligence = intelligence;
+    }
+
+    public void setConstitution(int constitution) {
+        this.constitution = constitution;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
     @Override

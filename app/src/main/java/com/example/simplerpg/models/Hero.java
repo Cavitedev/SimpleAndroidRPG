@@ -11,20 +11,21 @@ public class Hero implements Parcelable {
     //Higher means more xp to get a hero to a lvl
     private static final double HERO_LVL_PROGRESSION_RATE = 7;
 
-    private int id;
+    private Integer id;
     private String name;
     private String image;
 
     private Stats stats;
     private int xp;
+    private AbilitiesLearned abilities;
 
-
-    public Hero(int id, String name, String image, Stats stats, int xp) {
+    public Hero(Integer id, String name, String image, Stats stats, int xp, AbilitiesLearned abilities) {
         this.id = id;
         this.name = name;
         this.image = image;
         this.stats = stats;
         this.xp = xp;
+        this.abilities = abilities;
     }
 
     protected Hero(Parcel in) {
@@ -47,7 +48,7 @@ public class Hero implements Parcelable {
         }
     };
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -87,6 +88,9 @@ public class Hero implements Parcelable {
         return xpNextLvl - xp;
     }
 
+    public AbilitiesLearned getAbilities() {
+        return abilities;
+    }
 
     @Override
     public int describeContents() {
@@ -100,8 +104,8 @@ public class Hero implements Parcelable {
         dest.writeString(name);
         dest.writeString(image);
         dest.writeTypedObject(stats, 5);
-        //dest.writeParcelable(stats, 5);
         dest.writeInt(xp);
+        dest.writeTypedObject(abilities, 1);
     }
 
     @Override

@@ -9,9 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
+import com.example.simplerpg.models.AbilitiesLearned;
+import com.example.simplerpg.models.Ability;
 import com.example.simplerpg.models.Hero;
 import com.example.simplerpg.models.Stats;
 import com.example.simplerpg.ui.heroProperties.HeroProperties;
+
+import java.util.ArrayList;
 
 public class HeroProfile extends AppCompatActivity {
 
@@ -23,8 +27,14 @@ public class HeroProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hero_profile);
 
+        ArrayList<Ability> abilities = new ArrayList<>();
+        abilities.add(new Ability(null, "FireBall", "Launches a fire ball", Ability.Type.special, 80));
+        abilities.add(new Ability(null, "Big Dick", "Gives a strong Dick", Ability.Type.physical, 100));
+
+        AbilitiesLearned abilitiesLearned = new AbilitiesLearned(abilities);
+
         Stats exampleStats = new Stats(30, 12, 7, 20, 20);
-        Hero exampleHero = new Hero(0, "Swarchenagger", "rogue", exampleStats, 4856430);
+        Hero exampleHero = new Hero(null, "Swarchenagger", "rogue", exampleStats, 4856430, abilitiesLearned);
 
         Fragment fragment = HeroProperties.newInstance(exampleHero);
 

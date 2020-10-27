@@ -24,7 +24,7 @@ public class HeroPropertiesPageAdapter extends FragmentPagerAdapter {
             case 0:
                 return HeroStats.newInstance(bundle);
             case 1:
-                return new HeroAbilities();
+                return HeroAbilities.newInstance(bundle);
         }
         return null;
     }
