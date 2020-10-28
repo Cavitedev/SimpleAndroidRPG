@@ -14,10 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplerpg.R;
+import com.example.simplerpg.models.Ability;
 import com.example.simplerpg.models.Hero;
 import com.example.simplerpg.ui.adapters.AbilitiesAdapter;
 
-public class HeroAbilities extends Fragment {
+public class HeroAbilities extends Fragment implements AbilitiesAdapter.OnElementListener {
 
     RecyclerView recyclerView;
 
@@ -56,11 +57,23 @@ public class HeroAbilities extends Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        AbilitiesAdapter abilitiesAdapter = new AbilitiesAdapter(this.getContext(), hero.getAbilitiesLearned().getAbilities());
+        AbilitiesAdapter abilitiesAdapter = new AbilitiesAdapter(this.getContext(), hero.getAbilitiesLearned().getAbilities(), this);
 
         recyclerView.setAdapter(abilitiesAdapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), 1);
         recyclerView.addItemDecoration(dividerItemDecoration);
+    }
+
+    @Override
+    public void onElementClick(int position) {
+        Hero hero = getArguments().getParcelable("hero");
+        Ability ability = hero.getAbilitiesLearned().getAbilities().get(position);
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("ability", ability);
+        AbilityDescriptionDialogFragment dialogFragment = AbilityDescriptionDialogFragment.newInstance(bundle);
+        dialogFragment.show(getFragmentManager(), "");
+
     }
 }

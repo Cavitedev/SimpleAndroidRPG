@@ -60,12 +60,12 @@ public class HeroStats extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        getComponentsID(view);
+        getUIComponentsID(view);
         configureInitialUIValues();
         updateUI();
     }
 
-    private void getComponentsID(View view) {
+    private void getUIComponentsID(View view) {
         strengthTextView = view.findViewById(R.id.heroStats_strengh);
         dexterityTextView = view.findViewById(R.id.heroStats_dexterity);
         intelligenceTextView = view.findViewById(R.id.heroStats_intelligence);

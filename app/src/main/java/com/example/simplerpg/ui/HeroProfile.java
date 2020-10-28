@@ -35,8 +35,8 @@ public class HeroProfile extends AppCompatActivity {
 
         AbilitiesLearned abilitiesLearned = new AbilitiesLearned(abilities);
 
-        Stats exampleStats = new Stats(30, 12, 7, 20, 20);
-        Hero exampleHero = new Hero(null, "Swarchenagger", "rogue", exampleStats, 4856430, abilitiesLearned);
+        Stats exampleStats = new Stats(30, 7, 7, 30, 30);
+        Hero exampleHero = new Hero(null, "Rambo", "rogue", exampleStats, 680000, abilitiesLearned);
 
         Fragment fragment = HeroProperties.newInstance(exampleHero);
 
