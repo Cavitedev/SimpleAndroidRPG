@@ -27,7 +27,7 @@ public class AbilitiesAdapter extends RecyclerView.Adapter<AbilitiesAdapter.View
     @NonNull
     @Override
     public ViewHolderData onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.ability_list_item, null, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.ability_list_item, parent, false);
         return new ViewHolderData(view);
     }
 
