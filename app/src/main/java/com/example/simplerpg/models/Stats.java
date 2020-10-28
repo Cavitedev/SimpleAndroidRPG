@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Stats implements Parcelable {
-    private int id;
+    private Integer id;
 
     private int strength, dexterity, intelligence, constitution, speed;
 
@@ -60,7 +60,7 @@ public class Stats implements Parcelable {
         dest.writeInt(speed);
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

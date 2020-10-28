@@ -51,7 +51,7 @@ public class Ability implements Parcelable {
     }
 
     public enum Type {
-        physical, special, status
+        Physical, Special, Status
     }
 
     public Integer getId() {

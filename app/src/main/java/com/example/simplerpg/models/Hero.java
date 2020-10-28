@@ -9,7 +9,7 @@ import androidx.annotation.RequiresApi;
 public class Hero implements Parcelable {
 
     //Higher means more xp to get a hero to a lvl
-    private static final double HERO_LVL_PROGRESSION_RATE = 7;
+    private static final double HERO_LVL_PROGRESSION_RATE = 70;
 
     private Integer id;
     private String name;
@@ -17,15 +17,15 @@ public class Hero implements Parcelable {
 
     private Stats stats;
     private int xp;
-    private AbilitiesLearned abilities;
+    private AbilitiesLearned abilitiesLearned;
 
-    public Hero(Integer id, String name, String image, Stats stats, int xp, AbilitiesLearned abilities) {
+    public Hero(Integer id, String name, String image, Stats stats, int xp, AbilitiesLearned abilitiesLearned) {
         this.id = id;
         this.name = name;
         this.image = image;
         this.stats = stats;
         this.xp = xp;
-        this.abilities = abilities;
+        this.abilitiesLearned = abilitiesLearned;
     }
 
     protected Hero(Parcel in) {
@@ -88,8 +88,8 @@ public class Hero implements Parcelable {
         return xpNextLvl - xp;
     }
 
-    public AbilitiesLearned getAbilities() {
-        return abilities;
+    public AbilitiesLearned getAbilitiesLearned() {
+        return abilitiesLearned;
     }
 
     @Override
@@ -100,12 +100,16 @@ public class Hero implements Parcelable {
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        if (id == null) {
+            dest.writeInt(0);
+        } else {
+            dest.writeInt(id);
+        }
         dest.writeString(name);
         dest.writeString(image);
         dest.writeTypedObject(stats, 5);
         dest.writeInt(xp);
-        dest.writeTypedObject(abilities, 1);
+        dest.writeTypedObject(abilitiesLearned, 1);
     }
 
     @Override

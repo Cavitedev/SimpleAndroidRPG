@@ -28,8 +28,10 @@ public class HeroProfile extends AppCompatActivity {
         setContentView(R.layout.activity_hero_profile);
 
         ArrayList<Ability> abilities = new ArrayList<>();
-        abilities.add(new Ability(null, "FireBall", "Launches a fire ball", Ability.Type.special, 80));
-        abilities.add(new Ability(null, "Big Dick", "Gives a strong Dick", Ability.Type.physical, 100));
+        for (int i = 0; i < 10; i++) {
+            abilities.add(new Ability(null, "FireBall", "Launches a fire ball", Ability.Type.Special, 80));
+            abilities.add(new Ability(null, "Big Kick", "Gives a strong Dick", Ability.Type.Physical, 100));
+        }
 
         AbilitiesLearned abilitiesLearned = new AbilitiesLearned(abilities);
 

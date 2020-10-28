@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -55,8 +56,11 @@ public class HeroAbilities extends Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        AbilitiesAdapter abilitiesAdapter = new AbilitiesAdapter(this.getContext(), hero.getAbilities().getAbilities());
+        AbilitiesAdapter abilitiesAdapter = new AbilitiesAdapter(this.getContext(), hero.getAbilitiesLearned().getAbilities());
 
         recyclerView.setAdapter(abilitiesAdapter);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), 1);
+        recyclerView.addItemDecoration(dividerItemDecoration);
     }
 }

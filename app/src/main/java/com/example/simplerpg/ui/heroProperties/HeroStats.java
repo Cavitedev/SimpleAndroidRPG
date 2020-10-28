@@ -144,10 +144,12 @@ public class HeroStats extends Fragment {
         radarStats.add(new RadarEntry(hero.getStats().getSpeed()));
 
         RadarDataSet set = new RadarDataSet(radarStats, "Stats");
-        set.setColor(Color.rgb(103, 110, 129));
-        set.setFillColor(Color.rgb(103, 110, 129));
+        //set.setColor(Color.rgb(103, 110, 129));
+        set.setColor(Color.parseColor("#039BE5"));
+        //set.setFillColor(Color.rgb(0, 0, 255));
+        set.setFillColor(Color.parseColor("#63CCFF"));
         set.setDrawFilled(true);
-        set.setFillAlpha(180);
+        set.setFillAlpha(100);
         set.setLineWidth(2f);
         set.setDrawHighlightCircleEnabled(false);
         set.setDrawHighlightIndicators(false);
