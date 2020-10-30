@@ -1,4 +1,4 @@
-package com.example.simplerpg.ui.heroProperties;
+package com.example.simplerpg.ui.adapters;
 
 import android.os.Bundle;
 
@@ -7,6 +7,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.example.simplerpg.ui.heroProperties.HeroAbilities;
+import com.example.simplerpg.ui.heroProperties.HeroStats;
 
 public class HeroPropertiesPageAdapter extends FragmentPagerAdapter {
     Bundle bundle;

@@ -2,6 +2,7 @@ package com.example.simplerpg.ui;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import com.example.simplerpg.models.AbilitiesLearned;
 import com.example.simplerpg.models.Ability;
 import com.example.simplerpg.models.Hero;
 import com.example.simplerpg.models.Stats;
+import com.example.simplerpg.ui.heroProperties.AbilityTreeDialogFragment;
 import com.example.simplerpg.ui.heroProperties.HeroProperties;
 
 import java.util.ArrayList;
@@ -36,7 +38,7 @@ public class HeroProfile extends AppCompatActivity {
         AbilitiesLearned abilitiesLearned = new AbilitiesLearned(abilities);
 
         Stats exampleStats = new Stats(30, 7, 7, 30, 30);
-        Hero exampleHero = new Hero(null, "Rambo", "rogue", exampleStats, 680000, abilitiesLearned);
+        Hero exampleHero = new Hero(null, "Swarchenager", "rogue", exampleStats, 680000, abilitiesLearned);
 
         Fragment fragment = HeroProperties.newInstance(exampleHero);
 
@@ -63,5 +65,10 @@ public class HeroProfile extends AppCompatActivity {
         Drawable res = getResources().getDrawable(imageResource);
         imageImageView.setImageDrawable(res);
 
+    }
+
+    public void skillBookClicked(View view) {
+        AbilityTreeDialogFragment abilityTreeDialogFragment = new AbilityTreeDialogFragment();
+        abilityTreeDialogFragment.show(getSupportFragmentManager(), "");
     }
 }

@@ -35,4 +35,6 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     //android material
     implementation 'com.google.android.material:material:1.2.1'
+    //material dot page indicator
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
 }

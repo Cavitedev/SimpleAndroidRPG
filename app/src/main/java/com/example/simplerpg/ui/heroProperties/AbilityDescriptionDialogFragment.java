@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ public class AbilityDescriptionDialogFragment extends DialogFragment {
     Activity activity;
     TextView type, name, power, description;
     ImageView icon;
+    ImageButton closeButton;
 
     public AbilityDescriptionDialogFragment() {
 
@@ -55,6 +57,15 @@ public class AbilityDescriptionDialogFragment extends DialogFragment {
 
         icon = view.findViewById(R.id.ability_icon);
 
+        closeButton = view.findViewById(R.id.ability_closeButton);
+
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+
         setUIComponentsData();
 
         return builder.create();
@@ -81,6 +92,4 @@ public class AbilityDescriptionDialogFragment extends DialogFragment {
                     "must implement OnFragmentInteractionListener");
         }
     }
-
-
 }

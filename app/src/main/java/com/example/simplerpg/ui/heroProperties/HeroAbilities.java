@@ -48,21 +48,23 @@ public class HeroAbilities extends Fragment implements AbilitiesAdapter.OnElemen
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        if (getArguments() != null) {
 
-        Hero hero = getArguments().getParcelable("hero");
+            Hero hero = getArguments().getParcelable("hero");
 
-        recyclerView = view.findViewById(R.id.heroAbilities_recyclerView);
+            recyclerView = view.findViewById(R.id.heroAbilities_recyclerView);
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getContext());
+            recyclerView.setLayoutManager(mLayoutManager);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        AbilitiesAdapter abilitiesAdapter = new AbilitiesAdapter(this.getContext(), hero.getAbilitiesLearned().getAbilities(), this);
+            AbilitiesAdapter abilitiesAdapter = new AbilitiesAdapter(this.getContext(), hero.getAbilitiesLearned().getAbilities(), this);
 
-        recyclerView.setAdapter(abilitiesAdapter);
+            recyclerView.setAdapter(abilitiesAdapter);
 
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), 1);
-        recyclerView.addItemDecoration(dividerItemDecoration);
+            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), 1);
+            recyclerView.addItemDecoration(dividerItemDecoration);
+        }
     }
 
     @Override
