@@ -1,5 +1,6 @@
-package com.example.simplerpg.ui;
+package com.example.simplerpg.ui.heroProfile;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -14,8 +15,8 @@ import com.example.simplerpg.models.AbilitiesLearned;
 import com.example.simplerpg.models.Ability;
 import com.example.simplerpg.models.Hero;
 import com.example.simplerpg.models.Stats;
-import com.example.simplerpg.ui.heroProperties.AbilityTreeDialogFragment;
-import com.example.simplerpg.ui.heroProperties.HeroProperties;
+import com.example.simplerpg.ui.SkillsTreesActivity;
+import com.example.simplerpg.ui.heroProfile.heroProperties.HeroProperties;
 
 import java.util.ArrayList;
 
@@ -68,7 +69,7 @@ public class HeroProfile extends AppCompatActivity {
     }
 
     public void skillBookClicked(View view) {
-        AbilityTreeDialogFragment abilityTreeDialogFragment = new AbilityTreeDialogFragment();
-        abilityTreeDialogFragment.show(getSupportFragmentManager(), "");
+        Intent skillTreesActivity = new Intent(this, SkillsTreesActivity.class);
+        startActivity(skillTreesActivity);
     }
 }

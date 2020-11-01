@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.heroProperties.HeroAbilitiesTree">
+    tools:context=".ui.heroProfile.heroProperties.AbilityTreeFragment">
 
+    <de.blox.treeview.TreeView
+        android:id="@+id/abilityTree_treeView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </FrameLayout>

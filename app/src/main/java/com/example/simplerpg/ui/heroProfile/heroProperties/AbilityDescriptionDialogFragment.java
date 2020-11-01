@@ -1,4 +1,4 @@
-package com.example.simplerpg.ui.heroProperties;
+package com.example.simplerpg.ui.heroProfile.heroProperties;
 
 import android.app.Activity;
 import android.app.AlertDialog;

@@ -1,4 +1,4 @@
-package com.example.simplerpg.ui.heroProperties;
+package com.example.simplerpg.ui.heroProfile.heroProperties;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

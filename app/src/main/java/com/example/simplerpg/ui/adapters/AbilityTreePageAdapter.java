@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.simplerpg.ui.heroProperties.HeroStats;
+import com.example.simplerpg.ui.heroProfile.heroProperties.AbilityTreeFragment;
 
 public class AbilityTreePageAdapter extends FragmentPagerAdapter {
 
@@ -21,15 +21,12 @@ public class AbilityTreePageAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-
-        return HeroStats.newInstance(bundle);
-
-
+        return AbilityTreeFragment.newInstance(new Bundle());
     }
 
     @Override
     public int getCount() {
-        return 4;
+        return 3;
     }
 
 }

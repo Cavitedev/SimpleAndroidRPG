@@ -1,4 +1,4 @@
-package com.example.simplerpg.ui.heroProperties;
+package com.example.simplerpg.ui.heroProfile.heroProperties;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -117,18 +117,21 @@ public class HeroStats extends Fragment {
         if (getArguments() != null) {
             Hero hero = getArguments().getParcelable("hero");
 
-            strengthTextView.setText(String.valueOf(hero.getStats().getStrength()));
-            dexterityTextView.setText(String.valueOf(hero.getStats().getDexterity()));
-            intelligenceTextView.setText(String.valueOf(hero.getStats().getIntelligence()));
-            constitutionTextView.setText(String.valueOf(hero.getStats().getConstitution()));
-            speedTextView.setText(String.valueOf(hero.getStats().getSpeed()));
+            if (hero != null) {
 
-            lvlTextView.setText(String.valueOf(hero.getLvl()));
-            xpTillNextLvlTextView.setText(String.valueOf(hero.getExpTillNextLvl()));
+                strengthTextView.setText(String.valueOf(hero.getStats().getStrength()));
+                dexterityTextView.setText(String.valueOf(hero.getStats().getDexterity()));
+                intelligenceTextView.setText(String.valueOf(hero.getStats().getIntelligence()));
+                constitutionTextView.setText(String.valueOf(hero.getStats().getConstitution()));
+                speedTextView.setText(String.valueOf(hero.getStats().getSpeed()));
 
-            lvlProgressBar.setProgress((int) (hero.getXpPercentageTillCurrentLvl()));
+                lvlTextView.setText(String.valueOf(hero.getLvl()));
+                xpTillNextLvlTextView.setText(String.valueOf(hero.getExpTillNextLvl()));
 
-            updateStatsChart();
+                lvlProgressBar.setProgress((int) (hero.getXpPercentageTillCurrentLvl()));
+
+                updateStatsChart();
+            }
         }
     }
 

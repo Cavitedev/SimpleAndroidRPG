@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.simplerpg.R;
+import com.example.simplerpg.ui.heroProfile.HeroProfile;
 
 public class MainActivity extends AppCompatActivity {
 
