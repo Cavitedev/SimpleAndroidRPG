@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.models.Hero;
+import com.example.simplerpg.models.Stats;
 import com.example.simplerpg.ui.chartCustom.StatsValueFormatter;
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.components.Legend;
@@ -26,7 +26,7 @@ import com.github.mikephil.charting.data.RadarEntry;
 
 import java.util.ArrayList;
 
-public class HeroStats extends Fragment {
+public class HeroStatsFragment extends Fragment {
 
 
     private TextView strengthTextView, dexterityTextView, intelligenceTextView, constitutionTextView, speedTextView, lvlTextView, xpTillNextLvlTextView;
@@ -34,12 +34,16 @@ public class HeroStats extends Fragment {
 
     private RadarChart statsChart;
 
-    public HeroStats() {
+    private Stats stats;
+
+    public HeroStatsFragment() {
         // Required empty public constructor
     }
 
-    public static HeroStats newInstance(Bundle bundle) {
-        HeroStats fragment = new HeroStats();
+    public static HeroStatsFragment newInstance(Stats stats) {
+        HeroStatsFragment fragment = new HeroStatsFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("stats", stats);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -115,20 +119,20 @@ public class HeroStats extends Fragment {
 
     public void updateUI() {
         if (getArguments() != null) {
-            Hero hero = getArguments().getParcelable("hero");
+            stats = getArguments().getParcelable("stats");
 
-            if (hero != null) {
+            if (stats != null) {
 
-                strengthTextView.setText(String.valueOf(hero.getStats().getStrength()));
-                dexterityTextView.setText(String.valueOf(hero.getStats().getDexterity()));
-                intelligenceTextView.setText(String.valueOf(hero.getStats().getIntelligence()));
-                constitutionTextView.setText(String.valueOf(hero.getStats().getConstitution()));
-                speedTextView.setText(String.valueOf(hero.getStats().getSpeed()));
+                strengthTextView.setText(String.valueOf(stats.getStrength()));
+                dexterityTextView.setText(String.valueOf(stats.getDexterity()));
+                intelligenceTextView.setText(String.valueOf(stats.getIntelligence()));
+                constitutionTextView.setText(String.valueOf(stats.getConstitution()));
+                speedTextView.setText(String.valueOf(stats.getSpeed()));
 
-                lvlTextView.setText(String.valueOf(hero.getLvl()));
-                xpTillNextLvlTextView.setText(String.valueOf(hero.getExpTillNextLvl()));
+                lvlTextView.setText(String.valueOf(stats.getLvl()));
+                xpTillNextLvlTextView.setText(String.valueOf(stats.getExpTillNextLvl()));
 
-                lvlProgressBar.setProgress((int) (hero.getXpPercentageTillCurrentLvl()));
+                lvlProgressBar.setProgress((int) (stats.getXpPercentageTillCurrentLvl()));
 
                 updateStatsChart();
             }
@@ -136,15 +140,14 @@ public class HeroStats extends Fragment {
     }
 
     private void updateStatsChart() {
-        assert getArguments() != null;
-        Hero hero = getArguments().getParcelable("hero");
+
         ArrayList<RadarEntry> radarStats = new ArrayList<>();
 
-        radarStats.add(new RadarEntry(hero.getStats().getStrength()));
-        radarStats.add(new RadarEntry(hero.getStats().getDexterity()));
-        radarStats.add(new RadarEntry(hero.getStats().getIntelligence()));
-        radarStats.add(new RadarEntry(hero.getStats().getConstitution()));
-        radarStats.add(new RadarEntry(hero.getStats().getSpeed()));
+        radarStats.add(new RadarEntry(stats.getStrength()));
+        radarStats.add(new RadarEntry(stats.getDexterity()));
+        radarStats.add(new RadarEntry(stats.getIntelligence()));
+        radarStats.add(new RadarEntry(stats.getConstitution()));
+        radarStats.add(new RadarEntry(stats.getSpeed()));
 
         RadarDataSet set = new RadarDataSet(radarStats, "Stats");
         //set.setColor(Color.rgb(103, 110, 129));

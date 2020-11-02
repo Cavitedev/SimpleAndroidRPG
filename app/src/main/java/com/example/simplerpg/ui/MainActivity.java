@@ -7,7 +7,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.ui.heroProfile.HeroProfile;
+import com.example.simplerpg.ui.heroProfile.HeroProfileActivity;
+import com.example.simplerpg.ui.partyGrid.BattleActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,11 +21,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goToHeroProfile() {
-        Intent heroProfile = new Intent(this, HeroProfile.class);
+        Intent heroProfile = new Intent(this, HeroProfileActivity.class);
+        startActivity(heroProfile);
+    }
+
+    private void goToBattle() {
+        Intent heroProfile = new Intent(this, BattleActivity.class);
         startActivity(heroProfile);
     }
 
     public void button(View view) {
         goToHeroProfile();
+    }
+
+    public void buttonBattle(View view) {
+        goToBattle();
     }
 }

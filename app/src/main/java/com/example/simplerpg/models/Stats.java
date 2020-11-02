@@ -4,24 +4,36 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Stats implements Parcelable {
+
+    //Higher means more xp to get a hero to a lvl
+    private static final double HERO_LVL_PROGRESSION_RATE = 70;
+    private static final double HEALTH_SCALE_RATIO = 7;
+
     private Integer id;
 
     private int strength, dexterity, intelligence, constitution, speed;
 
+    private int xp;
+    private int maxHealth;
+    private int currentHealth;
+
     public Stats() {
-        this.strength = 1;
-        this.dexterity = 1;
-        this.intelligence = 1;
-        this.constitution = 1;
-        this.speed = 1;
+        this.strength = 7;
+        this.dexterity = 7;
+        this.intelligence = 7;
+        this.constitution = 7;
+        this.speed = 7;
+        calculateSecondaryStats();
     }
 
-    public Stats(int strength, int dexterity, int intelligence, int constitution, int speed) {
+    public Stats(int strength, int dexterity, int intelligence, int constitution, int speed, int xp) {
         this.strength = strength;
         this.dexterity = dexterity;
         this.intelligence = intelligence;
         this.constitution = constitution;
         this.speed = speed;
+        this.xp = xp;
+        calculateSecondaryStats();
     }
 
     protected Stats(Parcel in) {
@@ -31,6 +43,13 @@ public class Stats implements Parcelable {
         intelligence = in.readInt();
         constitution = in.readInt();
         speed = in.readInt();
+        xp = in.readInt();
+        calculateSecondaryStats();
+    }
+
+    private void calculateSecondaryStats() {
+        maxHealth = (int) (getLvl() * constitution * HEALTH_SCALE_RATIO);
+        currentHealth = maxHealth;
     }
 
     public static final Creator<Stats> CREATOR = new Creator<Stats>() {
@@ -62,6 +81,7 @@ public class Stats implements Parcelable {
         dest.writeInt(intelligence);
         dest.writeInt(constitution);
         dest.writeInt(speed);
+        dest.writeInt(xp);
     }
 
     public Integer getId() {
@@ -110,6 +130,46 @@ public class Stats implements Parcelable {
 
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    public int getXp() {
+        return xp;
+    }
+
+    public int getLvl() {
+        return (int) Math.sqrt(xp / HERO_LVL_PROGRESSION_RATE) + 1;
+    }
+
+    public double getXpPercentageTillCurrentLvl() {
+        int nextLvl = (int) Math.sqrt(xp / HERO_LVL_PROGRESSION_RATE) + 1;
+        int xpNextLvl = (int) (HERO_LVL_PROGRESSION_RATE * Math.pow(nextLvl, 2));
+        int xpCurrentLvl = (int) (HERO_LVL_PROGRESSION_RATE * Math.pow(nextLvl - 1, 2));
+
+        double percentage = (((xp - xpCurrentLvl)) / ((xpNextLvl - xpCurrentLvl + 0.0))) * 100;
+        return percentage;
+    }
+
+    public int getExpTillNextLvl() {
+        int nextLvl = (int) Math.sqrt(xp / HERO_LVL_PROGRESSION_RATE) + 1;
+        int xpNextLvl = (int) (HERO_LVL_PROGRESSION_RATE * Math.pow(nextLvl, 2));
+
+        return xpNextLvl - xp;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+    }
+
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
     }
 
     @Override

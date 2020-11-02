@@ -14,20 +14,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplerpg.R;
+import com.example.simplerpg.models.AbilitiesLearned;
 import com.example.simplerpg.models.Ability;
-import com.example.simplerpg.models.Hero;
 import com.example.simplerpg.ui.adapters.AbilitiesAdapter;
 
-public class HeroAbilities extends Fragment implements AbilitiesAdapter.OnElementListener {
+public class HeroAbilitiesFragment extends Fragment implements AbilitiesAdapter.OnElementListener {
 
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
+    private AbilitiesLearned abilities;
 
-    public HeroAbilities() {
+    public HeroAbilitiesFragment() {
         // Required empty public constructor
     }
 
-    public static HeroAbilities newInstance(Bundle bundle) {
-        HeroAbilities fragment = new HeroAbilities();
+    public static HeroAbilitiesFragment newInstance(AbilitiesLearned abilities) {
+        HeroAbilitiesFragment fragment = new HeroAbilitiesFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("abilities", abilities);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -50,7 +53,7 @@ public class HeroAbilities extends Fragment implements AbilitiesAdapter.OnElemen
         super.onViewCreated(view, savedInstanceState);
         if (getArguments() != null) {
 
-            Hero hero = getArguments().getParcelable("hero");
+            abilities = getArguments().getParcelable("abilities");
 
             recyclerView = view.findViewById(R.id.heroAbilities_recyclerView);
 
@@ -58,7 +61,7 @@ public class HeroAbilities extends Fragment implements AbilitiesAdapter.OnElemen
             recyclerView.setLayoutManager(mLayoutManager);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
 
-            AbilitiesAdapter abilitiesAdapter = new AbilitiesAdapter(this.getContext(), hero.getAbilitiesLearned().getAbilities(), this);
+            AbilitiesAdapter abilitiesAdapter = new AbilitiesAdapter(this.getContext(), abilities.getAbilities(), this);
 
             recyclerView.setAdapter(abilitiesAdapter);
 
@@ -69,12 +72,14 @@ public class HeroAbilities extends Fragment implements AbilitiesAdapter.OnElemen
 
     @Override
     public void onElementClick(int position) {
-        Hero hero = getArguments().getParcelable("hero");
-        Ability ability = hero.getAbilitiesLearned().getAbilities().get(position);
+
+        Ability ability = abilities.getAbilities().get(position);
 
         Bundle bundle = new Bundle();
         bundle.putParcelable("ability", ability);
+
         AbilityDescriptionDialogFragment dialogFragment = AbilityDescriptionDialogFragment.newInstance(bundle);
+        assert getFragmentManager() != null;
         dialogFragment.show(getFragmentManager(), "");
 
     }

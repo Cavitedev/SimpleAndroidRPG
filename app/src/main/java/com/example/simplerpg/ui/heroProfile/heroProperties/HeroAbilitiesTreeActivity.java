@@ -11,10 +11,10 @@ import com.example.simplerpg.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link HeroAbilitiesTree#newInstance} factory method to
+ * Use the {@link HeroAbilitiesTreeActivity#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HeroAbilitiesTree extends Fragment {
+public class HeroAbilitiesTreeActivity extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,7 +25,7 @@ public class HeroAbilitiesTree extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public HeroAbilitiesTree() {
+    public HeroAbilitiesTreeActivity() {
         // Required empty public constructor
     }
 
@@ -38,8 +38,8 @@ public class HeroAbilitiesTree extends Fragment {
      * @return A new instance of fragment HeroHabilitiesTree.
      */
     // TODO: Rename and change types and number of parameters
-    public static HeroAbilitiesTree newInstance(String param1, String param2) {
-        HeroAbilitiesTree fragment = new HeroAbilitiesTree();
+    public static HeroAbilitiesTreeActivity newInstance(String param1, String param2) {
+        HeroAbilitiesTreeActivity fragment = new HeroAbilitiesTreeActivity();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

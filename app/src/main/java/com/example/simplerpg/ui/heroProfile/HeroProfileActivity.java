@@ -16,11 +16,11 @@ import com.example.simplerpg.models.Ability;
 import com.example.simplerpg.models.Hero;
 import com.example.simplerpg.models.Stats;
 import com.example.simplerpg.ui.SkillsTreesActivity;
-import com.example.simplerpg.ui.heroProfile.heroProperties.HeroProperties;
+import com.example.simplerpg.ui.heroProfile.heroProperties.HeroPropertiesFragment;
 
 import java.util.ArrayList;
 
-public class HeroProfile extends AppCompatActivity {
+public class HeroProfileActivity extends AppCompatActivity {
 
     TextView nameTextView;
     ImageView imageImageView;
@@ -38,10 +38,10 @@ public class HeroProfile extends AppCompatActivity {
 
         AbilitiesLearned abilitiesLearned = new AbilitiesLearned(abilities);
 
-        Stats exampleStats = new Stats(30, 7, 7, 30, 30);
-        Hero exampleHero = new Hero(null, "Swarchenager", "rogue", exampleStats, 680000, abilitiesLearned);
+        Stats exampleStats = new Stats(30, 7, 7, 30, 30, 680000);
+        Hero exampleHero = new Hero(null, "Swarchenager", "rogue", exampleStats, abilitiesLearned);
 
-        Fragment fragment = HeroProperties.newInstance(exampleHero);
+        Fragment fragment = HeroPropertiesFragment.newInstance(exampleHero);
 
         getSupportFragmentManager().beginTransaction().add(R.id.heroProfile_fragmentContainerHeroProperties, fragment).commit();
 

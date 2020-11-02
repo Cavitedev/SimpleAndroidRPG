@@ -17,10 +17,10 @@ import com.example.simplerpg.ui.adapters.HeroPropertiesPageAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 
-public class HeroProperties extends Fragment {
+public class HeroPropertiesFragment extends Fragment {
     private Bundle bundle;
 
-    public HeroProperties() {
+    public HeroPropertiesFragment() {
         // Required empty public constructor
     }
 
@@ -32,8 +32,8 @@ public class HeroProperties extends Fragment {
      * @return A new instance of fragment HeroProperties.
      */
 
-    public static HeroProperties newInstance(Hero hero) {
-        HeroProperties fragment = new HeroProperties();
+    public static HeroPropertiesFragment newInstance(Hero hero) {
+        HeroPropertiesFragment fragment = new HeroPropertiesFragment();
         Bundle args = new Bundle();
         args.putParcelable("hero", hero);
         fragment.setArguments(args);

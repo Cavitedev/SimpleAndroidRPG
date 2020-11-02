@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.partyGrid.HeroFragment">
+
+
+    <ImageView
+        android:id="@+id/heroFragment_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/berserker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+
+        app:layout_constraintBottom_toBottomOf="@+id/heroFragment_image"
+        app:layout_constraintEnd_toStartOf="@+id/guideline35"
+        app:layout_constraintStart_toStartOf="@+id/guideline34"
+        app:rcBackgroundColor="#0A000000"
+        app:rcBackgroundPadding="2dp"
+        app:rcMax="100"
+
+        app:rcProgress="80"
+        app:rcProgressColor="#00dc23"
+        app:rcRadius="10dp"
+        app:rcSecondaryProgress="90"
+        app:rcSecondaryProgressColor="#83f67a">
+
+    </com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,8 +8,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.simplerpg.ui.heroProfile.heroProperties.HeroAbilities;
-import com.example.simplerpg.ui.heroProfile.heroProperties.HeroStats;
+import com.example.simplerpg.models.Hero;
+import com.example.simplerpg.ui.heroProfile.heroProperties.HeroAbilitiesFragment;
+import com.example.simplerpg.ui.heroProfile.heroProperties.HeroStatsFragment;
 
 public class HeroPropertiesPageAdapter extends FragmentPagerAdapter {
     Bundle bundle;
@@ -22,12 +23,12 @@ public class HeroPropertiesPageAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-
+        Hero hero = bundle.getParcelable("hero");
         switch (position) {
             case 0:
-                return HeroStats.newInstance(bundle);
+                return HeroStatsFragment.newInstance(hero.getStats());
             case 1:
-                return HeroAbilities.newInstance(bundle);
+                return HeroAbilitiesFragment.newInstance(hero.getAbilitiesLearned());
         }
         return null;
     }

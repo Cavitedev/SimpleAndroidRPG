@@ -8,23 +8,18 @@ import androidx.annotation.RequiresApi;
 
 public class Hero implements Parcelable {
 
-    //Higher means more xp to get a hero to a lvl
-    private static final double HERO_LVL_PROGRESSION_RATE = 70;
-
     private Integer id;
     private String name;
     private String image;
 
     private Stats stats;
-    private int xp;
     private AbilitiesLearned abilitiesLearned;
 
-    public Hero(Integer id, String name, String image, Stats stats, int xp, AbilitiesLearned abilitiesLearned) {
+    public Hero(Integer id, String name, String image, Stats stats, AbilitiesLearned abilitiesLearned) {
         this.id = id;
         this.name = name;
         this.image = image;
         this.stats = stats;
-        this.xp = xp;
         this.abilitiesLearned = abilitiesLearned;
     }
 
@@ -33,7 +28,6 @@ public class Hero implements Parcelable {
         name = in.readString();
         image = in.readString();
         stats = in.readParcelable(Stats.class.getClassLoader());
-        xp = in.readInt();
     }
 
     public static final Creator<Hero> CREATOR = new Creator<Hero>() {
@@ -64,30 +58,6 @@ public class Hero implements Parcelable {
         return stats;
     }
 
-    public int getXp() {
-        return xp;
-    }
-
-    public int getLvl() {
-        return (int) Math.sqrt(xp / HERO_LVL_PROGRESSION_RATE) + 1;
-    }
-
-    public double getXpPercentageTillCurrentLvl() {
-        int nextLvl = (int) Math.sqrt(xp / HERO_LVL_PROGRESSION_RATE) + 1;
-        int xpNextLvl = (int) (HERO_LVL_PROGRESSION_RATE * Math.pow(nextLvl, 2));
-        int xpCurrentLvl = (int) (HERO_LVL_PROGRESSION_RATE * Math.pow(nextLvl - 1, 2));
-
-        double percentage = (((xp - xpCurrentLvl)) / ((xpNextLvl - xpCurrentLvl + 0.0))) * 100;
-        return percentage;
-    }
-
-    public int getExpTillNextLvl() {
-        int nextLvl = (int) Math.sqrt(xp / HERO_LVL_PROGRESSION_RATE) + 1;
-        int xpNextLvl = (int) (HERO_LVL_PROGRESSION_RATE * Math.pow(nextLvl, 2));
-
-        return xpNextLvl - xp;
-    }
-
     public AbilitiesLearned getAbilitiesLearned() {
         return abilitiesLearned;
     }
@@ -108,7 +78,6 @@ public class Hero implements Parcelable {
         dest.writeString(name);
         dest.writeString(image);
         dest.writeTypedObject(stats, 5);
-        dest.writeInt(xp);
         dest.writeTypedObject(abilitiesLearned, 1);
     }
 
@@ -119,7 +88,6 @@ public class Hero implements Parcelable {
                 ", name='" + name + '\'' +
                 ", image='" + image + '\'' +
                 ", stats=" + stats +
-                ", xp=" + xp +
                 '}';
     }
 }
