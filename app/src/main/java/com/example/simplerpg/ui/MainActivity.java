@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.simplerpg.R;
 import com.example.simplerpg.ui.heroProfile.HeroProfileActivity;
-import com.example.simplerpg.ui.partyGrid.BattleActivity;
+import com.example.simplerpg.ui.partyGrid.PartyGridFormationSelectionActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goToBattle() {
-        Intent heroProfile = new Intent(this, BattleActivity.class);
+        Intent heroProfile = new Intent(this, PartyGridFormationSelectionActivity.class);
         startActivity(heroProfile);
     }
 

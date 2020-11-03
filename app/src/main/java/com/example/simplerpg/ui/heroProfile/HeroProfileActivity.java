@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class HeroProfileActivity extends AppCompatActivity {
 
     TextView nameTextView;
-    ImageView imageImageView;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class HeroProfileActivity extends AppCompatActivity {
 
     private void getComponentsID() {
         nameTextView = findViewById(R.id.heroProfile_name);
-        imageImageView = findViewById(R.id.heroProfile_image);
+        imageView = findViewById(R.id.heroProfile_image);
     }
 
     private void updateComponents(Hero hero) {
@@ -64,7 +64,7 @@ public class HeroProfileActivity extends AppCompatActivity {
 
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Drawable res = getResources().getDrawable(imageResource);
-        imageImageView.setImageDrawable(res);
+        imageView.setImageDrawable(res);
 
     }
 

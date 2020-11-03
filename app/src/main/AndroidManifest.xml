@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.partyGrid.BattleActivity"></activity>
+        <activity android:name=".ui.partyGrid.PartyGridFormationSelectionActivity"></activity>
+        <activity android:name=".ui.partyGrid.BattleActivity" />
         <activity android:name=".ui.SkillsTreesActivity" />
         <activity android:name=".ui.heroProfile.HeroProfileActivity" />
         <activity android:name=".ui.MainActivity">
