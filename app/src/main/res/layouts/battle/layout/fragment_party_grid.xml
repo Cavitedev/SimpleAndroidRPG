@@ -30,7 +30,15 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#DBDBDC"
-                android:orientation="horizontal" />
+                android:orientation="horizontal">
+
+                <fragment
+                    android:id="@+id/upLeftFragment"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+
+            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/upCenter"
@@ -38,7 +46,15 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#EAEAEB"
-                android:orientation="horizontal" />
+                android:orientation="horizontal">
+
+                <fragment
+                    android:id="@+id/upCenterFragment"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+
+            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/upRight"
@@ -46,7 +62,15 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#DBDBDC"
-                android:orientation="horizontal" />
+                android:orientation="horizontal">
+
+                <fragment
+                    android:id="@+id/upRightFragment"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -63,7 +87,15 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#EAEAEB"
-                android:orientation="horizontal" />
+                android:orientation="horizontal">
+
+                <fragment
+                    android:id="@+id/downLeftFragment"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+
+            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/downCenter"
@@ -71,7 +103,15 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#DBDBDC"
-                android:orientation="horizontal" />
+                android:orientation="horizontal">
+
+                <fragment
+                    android:id="@+id/downCenterFragment"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+
+            </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/downRight"
@@ -79,7 +119,15 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#EAEAEB"
-                android:orientation="horizontal" />
+                android:orientation="horizontal">
+
+                <fragment
+                    android:id="@+id/downRightFragment"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+
+            </FrameLayout>
 
         </LinearLayout>
 

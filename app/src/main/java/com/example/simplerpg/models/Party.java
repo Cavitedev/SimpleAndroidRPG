@@ -36,6 +36,10 @@ public class Party implements Parcelable {
         return heroes[x][y];
     }
 
+    public void putHeroAt(Hero hero, int x, int y) {
+        heroes[x][y] = hero;
+    }
+
     public static final Creator<Party> CREATOR = new Creator<Party>() {
         @Override
         public Party createFromParcel(Parcel in) {

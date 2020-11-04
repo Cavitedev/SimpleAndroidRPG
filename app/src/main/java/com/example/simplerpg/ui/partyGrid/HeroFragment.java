@@ -21,9 +21,9 @@ import com.example.simplerpg.models.Hero;
  */
 public class HeroFragment extends Fragment {
 
-    Hero hero;
+    private Hero hero;
 
-    ImageView imageView;
+    private ImageView imageView;
 
     public HeroFragment() {
         // Required empty public constructor
@@ -55,8 +55,15 @@ public class HeroFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         imageView = view.findViewById(R.id.heroFragment_image);
+        updateUI();
+    }
+
+    public void putHero(Hero hero) {
+        this.hero = hero;
+    }
+
+    public void updateUI() {
         if (hero != null) {
             String uri = "@drawable/" + hero.getImage();
             int imageResource = getResources().getIdentifier(uri, null, getActivity().getPackageName());

@@ -30,9 +30,9 @@ public class PartyGridFormationSelectionActivity extends AppCompatActivity {
         AbilitiesLearned abilitiesLearned = new AbilitiesLearned(abilities);
         Stats exampleStats = new Stats(30, 7, 7, 30, 30, 680000);
         Hero exampleHero = new Hero(null, "Tanky", "tank", exampleStats, abilitiesLearned);
-        Hero exampleHero1 = new Hero(null, "Manin", "archer", exampleStats, abilitiesLearned);
-        Hero exampleHero2 = new Hero(null, "Sech", "berserker", exampleStats, abilitiesLearned);
-        Hero exampleHero3 = new Hero(null, "PP", "mague", exampleStats, abilitiesLearned);
+        Hero exampleHero1 = new Hero(null, "Archer", "archer", exampleStats, abilitiesLearned);
+        Hero exampleHero2 = new Hero(null, "Berserker", "berserker", exampleStats, abilitiesLearned);
+        Hero exampleHero3 = new Hero(null, "Mague", "mague", exampleStats, abilitiesLearned);
 
         ArrayList<Hero> heroes = new ArrayList<>();
         heroes.add(exampleHero);
