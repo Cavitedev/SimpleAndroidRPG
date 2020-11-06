@@ -6,7 +6,10 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class AbilitiesLearned implements Parcelable {
-    ArrayList<Ability> abilities;
+    ArrayList<Ability> abilities = new ArrayList();
+
+    public AbilitiesLearned() {
+    }
 
     public AbilitiesLearned(ArrayList<Ability> abilities) {
         this.abilities = abilities;

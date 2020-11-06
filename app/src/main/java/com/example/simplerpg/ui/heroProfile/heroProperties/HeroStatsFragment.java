@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.example.simplerpg.R;
 import com.example.simplerpg.models.Stats;
 import com.example.simplerpg.ui.chartCustom.StatsValueFormatter;
@@ -30,7 +30,8 @@ public class HeroStatsFragment extends Fragment {
 
 
     private TextView strengthTextView, dexterityTextView, intelligenceTextView, constitutionTextView, speedTextView, lvlTextView, xpTillNextLvlTextView;
-    private ProgressBar lvlProgressBar;
+
+    private RoundCornerProgressBar lvlProgressBar;
 
     private RadarChart statsChart;
 

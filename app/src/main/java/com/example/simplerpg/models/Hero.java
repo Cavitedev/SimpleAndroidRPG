@@ -1,10 +1,7 @@
 package com.example.simplerpg.models;
 
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import androidx.annotation.RequiresApi;
 
 public class Hero implements Parcelable {
 
@@ -12,8 +9,8 @@ public class Hero implements Parcelable {
     private String name;
     private String image;
 
-    private Stats stats;
-    private AbilitiesLearned abilitiesLearned;
+    private Stats stats = new Stats();
+    private AbilitiesLearned abilitiesLearned = new AbilitiesLearned();
 
     public Hero(Integer id, String name, String image, Stats stats, AbilitiesLearned abilitiesLearned) {
         this.id = id;
@@ -23,11 +20,26 @@ public class Hero implements Parcelable {
         this.abilitiesLearned = abilitiesLearned;
     }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        if (id == null) {
+            dest.writeInt(0);
+        } else {
+            dest.writeInt(id);
+        }
+
+        dest.writeString(image);
+        dest.writeParcelable(stats, flags);
+        dest.writeParcelable(abilitiesLearned, flags);
+    }
+
     protected Hero(Parcel in) {
-        id = in.readInt();
         name = in.readString();
+        id = in.readInt();
         image = in.readString();
-        stats = in.readParcelable(Stats.class.getClassLoader());
+        stats = in.readParcelable(stats.getClass().getClassLoader());
+        abilitiesLearned = in.readParcelable(abilitiesLearned.getClass().getClassLoader());
     }
 
     public static final Creator<Hero> CREATOR = new Creator<Hero>() {
@@ -65,20 +77,6 @@ public class Hero implements Parcelable {
     @Override
     public int describeContents() {
         return 0;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        if (id == null) {
-            dest.writeInt(0);
-        } else {
-            dest.writeInt(id);
-        }
-        dest.writeString(name);
-        dest.writeString(image);
-        dest.writeTypedObject(stats, 5);
-        dest.writeTypedObject(abilitiesLearned, 1);
     }
 
     @Override

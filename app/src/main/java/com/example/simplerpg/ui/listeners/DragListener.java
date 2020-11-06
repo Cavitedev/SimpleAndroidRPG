@@ -29,9 +29,8 @@ public class DragListener implements View.OnDragListener {
                 dragEvent.getClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN);
                 break;
             case DragEvent.ACTION_DRAG_ENTERED:
-                v.invalidate();
-                break;
             case DragEvent.ACTION_DRAG_EXITED:
+            case DragEvent.ACTION_DRAG_ENDED:
                 v.invalidate();
                 break;
             case DragEvent.ACTION_DROP:
@@ -55,9 +54,7 @@ public class DragListener implements View.OnDragListener {
                 managePartyChanges(firstContainer, container);
                 Log.i("PARTY", "PARTY AT CHANGE\n" + party.toString());
 
-                break;
-            case DragEvent.ACTION_DRAG_ENDED:
-                v.invalidate();
+
                 break;
             default:
                 break;
@@ -108,5 +105,9 @@ public class DragListener implements View.OnDragListener {
                 break;
         }
         return position;
+    }
+
+    public Party getParty() {
+        return party;
     }
 }

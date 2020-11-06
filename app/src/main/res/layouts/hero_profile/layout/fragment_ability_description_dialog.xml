@@ -59,9 +59,9 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Type:"
+                    android:text="@string/ability_type"
                     android:textSize="20sp"
-                    android:layout_marginLeft="5dp" />
+                    android:layout_marginStart="5dp" />
 
                 <TextView
                     android:id="@+id/ability_type"
@@ -70,7 +70,7 @@
                     android:gravity="end"
                     android:text="Special"
                     android:textSize="20sp"
-                    android:layout_marginRight="10dp" />
+                    android:layout_marginEnd="10dp" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -83,9 +83,9 @@
                     android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Power:"
+                    android:text="@string/ability_power"
                     android:textSize="20sp"
-                    android:layout_marginLeft="5dp" />
+                    android:layout_marginStart="5dp" />
 
                 <TextView
                     android:id="@+id/ability_power"
@@ -94,7 +94,7 @@
                     android:gravity="end"
                     android:text="70"
                     android:textSize="20sp"
-                    android:layout_marginRight="10dp" />
+                    android:layout_marginEnd="10dp" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -102,11 +102,10 @@
                 android:id="@+id/ability_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"
                 android:text="A nutrient-draining attack. The user’s HP is restored by half the damage taken by the target."
                 android:textSize="17sp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="10dp" />
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp" />
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>

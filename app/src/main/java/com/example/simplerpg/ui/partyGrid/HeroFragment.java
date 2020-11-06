@@ -1,5 +1,6 @@
 package com.example.simplerpg.ui.partyGrid;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.example.simplerpg.R;
 import com.example.simplerpg.models.Hero;
 
@@ -24,6 +26,7 @@ public class HeroFragment extends Fragment {
     private Hero hero;
 
     private ImageView imageView;
+    private RoundCornerProgressBar healthProgressBar;
 
     public HeroFragment() {
         // Required empty public constructor
@@ -31,18 +34,13 @@ public class HeroFragment extends Fragment {
 
     public static HeroFragment newInstance(Hero hero) {
         HeroFragment fragment = new HeroFragment();
-        Bundle args = new Bundle();
-        args.putParcelable("hero", hero);
-        fragment.setArguments(args);
+        fragment.hero = hero;
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            hero = getArguments().getParcelable("hero");
-        }
     }
 
     @Override
@@ -56,19 +54,24 @@ public class HeroFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         imageView = view.findViewById(R.id.heroFragment_image);
-        updateUI();
+        healthProgressBar = view.findViewById(R.id.heroFragment_healthProgressBar);
+        setUIData();
     }
 
     public void putHero(Hero hero) {
         this.hero = hero;
     }
 
-    public void updateUI() {
-        if (hero != null) {
+    public void setUIData() {
+        if (hero != null && hero.getImage() != null && hero.getImage().length() != 0) {
             String uri = "@drawable/" + hero.getImage();
             int imageResource = getResources().getIdentifier(uri, null, getActivity().getPackageName());
             Drawable res = getResources().getDrawable(imageResource);
             imageView.setImageDrawable(res);
+
+            healthProgressBar.setVisibility(View.VISIBLE);
+            healthProgressBar.setProgress(100);
+            healthProgressBar.setBackgroundColor(Color.parseColor("#0A000000"));
         }
     }
 }

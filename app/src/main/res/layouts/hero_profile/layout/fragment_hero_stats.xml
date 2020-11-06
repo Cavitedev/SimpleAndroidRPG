@@ -27,7 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="Xp remaining"
+            android:text="@string/xp_remaining"
             app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline22"
             app:layout_constraintEnd_toStartOf="@+id/heroStats_lvlXpTillNextLevel"
@@ -53,8 +53,8 @@
             android:id="@+id/heroProfile_dexterityTextView2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:gravity="left|center_vertical"
-            android:text="Dexterity"
+            android:gravity="start|center_vertical"
+            android:text="@string/dexterity"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline23"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
@@ -73,19 +73,24 @@
             app:layout_constraintStart_toStartOf="@+id/guideline15"
             app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
-        <ProgressBar
+        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
             android:id="@+id/heroProfile_lvlProgressBar"
-            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="0dp"
-            android:layout_height="46dp"
+            android:layout_height="0dp"
             android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:max="100"
+
             app:layout_constraintBottom_toTopOf="@+id/guideline17"
             app:layout_constraintEnd_toStartOf="@+id/guideline14"
+            app:layout_constraintHeight_max="10dp"
             app:layout_constraintStart_toStartOf="@+id/guideline15"
-            app:layout_constraintTop_toTopOf="@+id/guideline11"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="@+id/guideline32"
+
+            app:rcBackgroundColor="#0A000000"
+            app:rcBackgroundPadding="2dp"
+            app:rcMax="100"
+            app:rcProgressColor="@color/colorPrimary"
+            app:rcRadius="10dp" />
+
 
         <TextView
             android:id="@+id/heroStats_speed"
@@ -106,17 +111,17 @@
             android:gravity="center"
             android:text="10"
             app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintBottom_toTopOf="@+id/guideline17"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
             app:layout_constraintStart_toStartOf="@+id/guideline16"
-            app:layout_constraintTop_toTopOf="@+id/guideline11" />
+            app:layout_constraintTop_toTopOf="@+id/guideline32" />
 
         <TextView
             android:id="@+id/heroProfile_constitutionTextView2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:gravity="left|center_vertical"
-            android:text="Constitution"
+            android:gravity="start|center_vertical"
+            android:text="@string/constitution"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline25"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
@@ -140,19 +145,19 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="Lvl"
+            android:text="@string/lvl"
             app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintBottom_toTopOf="@+id/guideline17"
             app:layout_constraintEnd_toStartOf="@+id/guideline16"
             app:layout_constraintStart_toStartOf="@+id/guideline13"
-            app:layout_constraintTop_toTopOf="@+id/guideline11" />
+            app:layout_constraintTop_toTopOf="@+id/guideline32" />
 
         <TextView
             android:id="@+id/heroProfile_strenghTextView2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:gravity="left|center_vertical"
-            android:text="Strength"
+            android:gravity="start|center_vertical"
+            android:text="@string/strength"
             android:textSize="20sp"
             app:autoSizeTextType="none"
             app:layout_constraintBottom_toTopOf="@+id/guideline21"
@@ -165,8 +170,8 @@
             android:id="@+id/heroProfile_intelligenceTextView2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:gravity="left|center_vertical"
-            android:text="Intelligence"
+            android:gravity="start|center_vertical"
+            android:text="@string/intelligence"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline24"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
@@ -177,8 +182,8 @@
             android:id="@+id/heroProfile_speedTextView2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:gravity="left|center_vertical"
-            android:text="Speed"
+            android:gravity="start|center_vertical"
+            android:text="@string/speed"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/guideline20"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
@@ -203,13 +208,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.20" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.04" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline12"
@@ -319,6 +317,13 @@
             app:layout_constraintTop_toTopOf="@+id/guideline12">
 
         </com.github.mikephil.charting.charts.RadarChart>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.04" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -19,20 +19,19 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+        android:id="@+id/heroFragment_healthProgressBar"
         android:layout_width="0dp"
         android:layout_height="10dp"
 
+        android:layout_marginBottom="10dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/heroFragment_image"
         app:layout_constraintEnd_toStartOf="@+id/guideline35"
         app:layout_constraintStart_toStartOf="@+id/guideline34"
-        app:rcBackgroundColor="#0A000000"
         app:rcBackgroundPadding="2dp"
         app:rcMax="100"
-
-        app:rcProgress="80"
         app:rcProgressColor="#00dc23"
         app:rcRadius="10dp"
-        app:rcSecondaryProgress="90"
         app:rcSecondaryProgressColor="#83f67a">
 
     </com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar>

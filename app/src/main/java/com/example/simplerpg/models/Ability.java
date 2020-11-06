@@ -22,6 +22,7 @@ public class Ability implements Parcelable {
         id = in.readInt();
         name = in.readString();
         description = in.readString();
+        type = Type.values()[in.readInt()];
         power = in.readInt();
     }
 
@@ -51,6 +52,7 @@ public class Ability implements Parcelable {
         }
         dest.writeString(name);
         dest.writeString(description);
+        dest.writeInt(type.ordinal());
         dest.writeInt(power);
     }
 

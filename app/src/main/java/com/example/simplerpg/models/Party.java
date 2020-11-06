@@ -13,7 +13,9 @@ public class Party implements Parcelable {
     }
 
     protected Party(Parcel in) {
-        heroes = (Hero[][]) in.readArray(heroes.getClass().getClassLoader());
+        Hero[] heroesArray = in.createTypedArray(Hero.CREATOR);
+
+        this.addHeroes(heroesArray);
     }
 
     public Hero[][] getHeroes() {
@@ -28,6 +30,18 @@ public class Party implements Parcelable {
                     return;
                 }
                 this.heroes[i][j] = heroes.get(heroN);
+            }
+        }
+    }
+
+    public void addHeroes(Hero[] heroes) {
+        int heroN = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 2; j++, heroN++) {
+                if (heroN >= heroes.length) {
+                    return;
+                }
+                this.heroes[i][j] = heroes[heroN];
             }
         }
     }

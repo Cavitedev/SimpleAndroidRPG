@@ -1,7 +1,6 @@
 package com.example.simplerpg.ui.partyGrid;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,34 +20,37 @@ import com.example.simplerpg.ui.listeners.TouchListener;
 public class PartyGridFragment extends Fragment {
 
     private Party party;
-    private View partyGridFragmentView;
+
+    private Context context;
+
+    private TouchListener touchListener;
+    private DragListener dragListener;
+
+    public enum Context {
+        COMBAT, FORMATION
+    }
 
     public PartyGridFragment() {
         // Required empty public constructor
     }
 
-    public static PartyGridFragment newInstance(Party party) {
+    public static PartyGridFragment newInstance(Party party, Context context) {
         PartyGridFragment fragment = new PartyGridFragment();
-        Bundle args = new Bundle();
-        args.putParcelable("party", party);
-        fragment.setArguments(args);
+        fragment.party = party;
+        fragment.context = context;
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        party = getArguments().getParcelable("party");
-
-        Log.i("PARTY", "PARTY AT START\n" + party.toString());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        partyGridFragmentView = inflater.inflate(R.layout.fragment_party_grid, container, false);
-        return partyGridFragmentView;
+        return inflater.inflate(R.layout.fragment_party_grid, container, false);
     }
 
     @Override
@@ -66,9 +68,8 @@ public class PartyGridFragment extends Fragment {
         FrameLayout frameLayout = getView().findViewById(R.id.upLeft);
         HeroFragment heroFragment = (HeroFragment) getFragmentManager().findFragmentById(R.id.upLeftFragment);
 
-        TouchListener touchListener = new TouchListener();
-        DragListener dragListener = new DragListener(touchListener, party);
-
+        touchListener = new TouchListener();
+        dragListener = new DragListener(touchListener, party);
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
@@ -106,17 +107,25 @@ public class PartyGridFragment extends Fragment {
                         }
                         break;
                 }
-                frameLayout.setOnDragListener(dragListener);
 
                 Hero hero = party.getHeroAt(i, j);
 
                 heroFragment.putHero(hero);
 
-                if (hero != null) {
-                    heroFragment.updateUI();
-                    heroFragment.getView().setOnTouchListener(touchListener);
+                if (context == Context.FORMATION) {
+
+                    frameLayout.setOnDragListener(dragListener);
+
+                    if (hero != null) {
+                        heroFragment.setUIData();
+                        heroFragment.getView().setOnTouchListener(touchListener);
+                    }
                 }
             }
         }
+    }
+
+    public Party getParty() {
+        return party;
     }
 }

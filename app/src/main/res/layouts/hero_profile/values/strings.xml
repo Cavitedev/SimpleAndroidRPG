@@ -1,1 +1,18 @@
-<resources></resources>
+<resources>
+    <string name="xp_remaining">Xp remaining</string>
+    <string name="lvl">Lvl</string>
+    <string name="strength">Strength</string>
+    <string name="dexterity">Dexterity</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="constitution">Constitution</string>
+    <string name="speed">Speed</string>
+
+    <string name="ability_type">Type</string>
+    <string name="ability_name">Name</string>
+    <string name="ability_power">Power</string>
+
+    <string name="name">Name:</string>
+    <string name="race">Race:</string>
+    <string name="skill_book">SkillBook</string>
+
+</resources>
