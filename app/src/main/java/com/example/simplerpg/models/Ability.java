@@ -1,9 +1,6 @@
 package com.example.simplerpg.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-public class Ability implements Parcelable {
+public class Ability {
     private Integer id;
     private String name, description;
     private Type type;
@@ -16,44 +13,6 @@ public class Ability implements Parcelable {
         this.description = description;
         this.type = type;
         this.power = power;
-    }
-
-    protected Ability(Parcel in) {
-        id = in.readInt();
-        name = in.readString();
-        description = in.readString();
-        type = Type.values()[in.readInt()];
-        power = in.readInt();
-    }
-
-    public static final Creator<Ability> CREATOR = new Creator<Ability>() {
-        @Override
-        public Ability createFromParcel(Parcel in) {
-            return new Ability(in);
-        }
-
-        @Override
-        public Ability[] newArray(int size) {
-            return new Ability[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        if (id != null) {
-            dest.writeInt(id);
-        } else {
-            dest.writeInt(0);
-        }
-        dest.writeString(name);
-        dest.writeString(description);
-        dest.writeInt(type.ordinal());
-        dest.writeInt(power);
     }
 
     public enum Type {

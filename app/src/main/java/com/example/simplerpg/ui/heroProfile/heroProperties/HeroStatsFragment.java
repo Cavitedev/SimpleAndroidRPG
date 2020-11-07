@@ -43,9 +43,7 @@ public class HeroStatsFragment extends Fragment {
 
     public static HeroStatsFragment newInstance(Stats stats) {
         HeroStatsFragment fragment = new HeroStatsFragment();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable("stats", stats);
-        fragment.setArguments(bundle);
+        fragment.stats = stats;
         return fragment;
     }
 
@@ -119,24 +117,20 @@ public class HeroStatsFragment extends Fragment {
     }
 
     public void updateUI() {
-        if (getArguments() != null) {
-            stats = getArguments().getParcelable("stats");
+        if (stats != null) {
 
-            if (stats != null) {
+            strengthTextView.setText(String.valueOf(stats.getStrength()));
+            dexterityTextView.setText(String.valueOf(stats.getDexterity()));
+            intelligenceTextView.setText(String.valueOf(stats.getIntelligence()));
+            constitutionTextView.setText(String.valueOf(stats.getConstitution()));
+            speedTextView.setText(String.valueOf(stats.getSpeed()));
 
-                strengthTextView.setText(String.valueOf(stats.getStrength()));
-                dexterityTextView.setText(String.valueOf(stats.getDexterity()));
-                intelligenceTextView.setText(String.valueOf(stats.getIntelligence()));
-                constitutionTextView.setText(String.valueOf(stats.getConstitution()));
-                speedTextView.setText(String.valueOf(stats.getSpeed()));
+            lvlTextView.setText(String.valueOf(stats.getLvl()));
+            xpTillNextLvlTextView.setText(String.valueOf(stats.getExpTillNextLvl()));
 
-                lvlTextView.setText(String.valueOf(stats.getLvl()));
-                xpTillNextLvlTextView.setText(String.valueOf(stats.getExpTillNextLvl()));
+            lvlProgressBar.setProgress((int) (stats.getXpPercentageTillCurrentLvl()));
 
-                lvlProgressBar.setProgress((int) (stats.getXpPercentageTillCurrentLvl()));
-
-                updateStatsChart();
-            }
+            updateStatsChart();
         }
     }
 

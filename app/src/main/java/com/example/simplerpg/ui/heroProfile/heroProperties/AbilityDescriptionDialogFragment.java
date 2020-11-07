@@ -21,18 +21,19 @@ import com.example.simplerpg.models.Ability;
 
 public class AbilityDescriptionDialogFragment extends DialogFragment {
 
-    Activity activity;
-    TextView type, name, power, description;
-    ImageView icon;
-    ImageButton closeButton;
+    private Activity activity;
+    private Ability ability;
+    private TextView type, name, power, description;
+    private ImageView icon;
+    private ImageButton closeButton;
 
     public AbilityDescriptionDialogFragment() {
 
     }
 
-    public static AbilityDescriptionDialogFragment newInstance(Bundle bundle) {
+    public static AbilityDescriptionDialogFragment newInstance(Ability ability) {
         AbilityDescriptionDialogFragment fragment = new AbilityDescriptionDialogFragment();
-        fragment.setArguments(bundle);
+        fragment.ability = ability;
         return fragment;
     }
 
@@ -72,8 +73,6 @@ public class AbilityDescriptionDialogFragment extends DialogFragment {
     }
 
     private void setUIComponentsData() {
-        Ability ability = getArguments().getParcelable("ability");
-
         name.setText(ability.getName());
         type.setText(ability.getType().toString());
         power.setText(String.valueOf(ability.getPower()));

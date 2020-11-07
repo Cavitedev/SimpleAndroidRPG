@@ -1,21 +1,12 @@
 package com.example.simplerpg.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.ArrayList;
 
-public class Party implements Parcelable {
+public class Party {
     Hero[][] heroes = new Hero[3][2];
 
     public Party() {
 
-    }
-
-    protected Party(Parcel in) {
-        Hero[] heroesArray = in.createTypedArray(Hero.CREATOR);
-
-        this.addHeroes(heroesArray);
     }
 
     public Hero[][] getHeroes() {
@@ -52,29 +43,6 @@ public class Party implements Parcelable {
 
     public void putHeroAt(Hero hero, int x, int y) {
         heroes[x][y] = hero;
-    }
-
-    public static final Creator<Party> CREATOR = new Creator<Party>() {
-        @Override
-        public Party createFromParcel(Parcel in) {
-            return new Party(in);
-        }
-
-        @Override
-        public Party[] newArray(int size) {
-            return new Party[size];
-        }
-    };
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeArray(heroes);
     }
 
     @Override

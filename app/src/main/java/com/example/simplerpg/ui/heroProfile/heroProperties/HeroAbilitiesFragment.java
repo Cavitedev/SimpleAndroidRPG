@@ -29,9 +29,7 @@ public class HeroAbilitiesFragment extends Fragment implements AbilitiesAdapter.
 
     public static HeroAbilitiesFragment newInstance(AbilitiesLearned abilities) {
         HeroAbilitiesFragment fragment = new HeroAbilitiesFragment();
-        Bundle bundle = new Bundle();
-        bundle.putParcelable("abilities", abilities);
-        fragment.setArguments(bundle);
+        fragment.abilities = abilities;
         return fragment;
     }
 
@@ -51,9 +49,7 @@ public class HeroAbilitiesFragment extends Fragment implements AbilitiesAdapter.
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if (getArguments() != null) {
-
-            abilities = getArguments().getParcelable("abilities");
+        if (abilities != null) {
 
             recyclerView = view.findViewById(R.id.heroAbilities_recyclerView);
 
@@ -75,10 +71,7 @@ public class HeroAbilitiesFragment extends Fragment implements AbilitiesAdapter.
 
         Ability ability = abilities.getAbilities().get(position);
 
-        Bundle bundle = new Bundle();
-        bundle.putParcelable("ability", ability);
-
-        AbilityDescriptionDialogFragment dialogFragment = AbilityDescriptionDialogFragment.newInstance(bundle);
+        AbilityDescriptionDialogFragment dialogFragment = AbilityDescriptionDialogFragment.newInstance(ability);
         assert getFragmentManager() != null;
         dialogFragment.show(getFragmentManager(), "");
 

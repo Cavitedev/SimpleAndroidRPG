@@ -1,7 +1,5 @@
 package com.example.simplerpg.ui.adapters;
 
-import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -13,17 +11,17 @@ import com.example.simplerpg.ui.heroProfile.heroProperties.HeroAbilitiesFragment
 import com.example.simplerpg.ui.heroProfile.heroProperties.HeroStatsFragment;
 
 public class HeroPropertiesPageAdapter extends FragmentPagerAdapter {
-    Bundle bundle;
+    private Hero hero;
 
-    public HeroPropertiesPageAdapter(@NonNull FragmentManager fm, int behavior, Bundle savedInstanceState) {
+    public HeroPropertiesPageAdapter(@NonNull FragmentManager fm, int behavior, Hero hero) {
         super(fm, behavior);
-        bundle = savedInstanceState;
+        this.hero = hero;
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        Hero hero = bundle.getParcelable("hero");
+
         switch (position) {
             case 0:
                 return HeroStatsFragment.newInstance(hero.getStats());

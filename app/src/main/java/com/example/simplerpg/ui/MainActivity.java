@@ -13,7 +13,6 @@ import com.example.simplerpg.models.Ability;
 import com.example.simplerpg.models.Hero;
 import com.example.simplerpg.models.Party;
 import com.example.simplerpg.models.Stats;
-import com.example.simplerpg.ui.heroProfile.HeroProfileActivity;
 import com.example.simplerpg.ui.partyGrid.PartyGridFormationSelectionActivity;
 import com.google.gson.Gson;
 
@@ -34,11 +33,14 @@ public class MainActivity extends AppCompatActivity {
         abilities.add(new Ability(null, "FireBall", "Launches a fire ball", Ability.Type.Special, 80));
         abilities.add(new Ability(null, "Big Kick", "Gives a strong Dick", Ability.Type.Physical, 100));
         AbilitiesLearned abilitiesLearned = new AbilitiesLearned(abilities);
-        Stats exampleStats = new Stats(30, 7, 7, 30, 30, 680000);
+        Stats exampleStats = new Stats(20, 10, 10, 30, 7, 680000);
+        Stats exampleStats1 = new Stats(12, 30, 7, 10, 26, 680000);
+        Stats exampleStats2 = new Stats(30, 7, 7, 20, 20, 680000);
+        Stats exampleStats3 = new Stats(30, 7, 30, 30, 19, 680000);
         Hero exampleHero = new Hero(null, "Tanky", "tank", exampleStats, abilitiesLearned);
-        Hero exampleHero1 = new Hero(null, "Archer", "archer", exampleStats, abilitiesLearned);
-        Hero exampleHero2 = new Hero(null, "Berserker", "berserker", exampleStats, abilitiesLearned);
-        Hero exampleHero3 = new Hero(null, "Mague", "mague", exampleStats, abilitiesLearned);
+        Hero exampleHero1 = new Hero(null, "Archer", "archer", exampleStats1, abilitiesLearned);
+        Hero exampleHero2 = new Hero(null, "Berserker", "berserker", exampleStats2, abilitiesLearned);
+        Hero exampleHero3 = new Hero(null, "Mague", "mague", exampleStats3, abilitiesLearned);
 
         ArrayList<Hero> heroes = new ArrayList<>();
         heroes.add(exampleHero);
@@ -50,11 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void goToHeroProfile() {
-        Intent heroProfile = new Intent(this, HeroProfileActivity.class);
-        startActivity(heroProfile);
-    }
-
     private void goToBattle() {
         Intent partyGrid = new Intent(this, PartyGridFormationSelectionActivity.class);
 
@@ -63,10 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
         partyGrid.putExtra("party", partyJson);
         startActivityForResult(partyGrid, 1);
-    }
-
-    public void button(View view) {
-        goToHeroProfile();
     }
 
     public void buttonBattle(View view) {

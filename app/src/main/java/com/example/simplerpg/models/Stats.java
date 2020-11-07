@@ -1,9 +1,6 @@
 package com.example.simplerpg.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-public class Stats implements Parcelable {
+public class Stats {
 
     //Higher means more xp to get a hero to a lvl
     private static final double HERO_LVL_PROGRESSION_RATE = 70;
@@ -36,52 +33,9 @@ public class Stats implements Parcelable {
         calculateSecondaryStats();
     }
 
-    protected Stats(Parcel in) {
-        id = in.readInt();
-        strength = in.readInt();
-        dexterity = in.readInt();
-        intelligence = in.readInt();
-        constitution = in.readInt();
-        speed = in.readInt();
-        xp = in.readInt();
-        calculateSecondaryStats();
-    }
-
     private void calculateSecondaryStats() {
         maxHealth = (int) (getLvl() * constitution * HEALTH_SCALE_RATIO);
         currentHealth = maxHealth;
-    }
-
-    public static final Creator<Stats> CREATOR = new Creator<Stats>() {
-        @Override
-        public Stats createFromParcel(Parcel in) {
-            return new Stats(in);
-        }
-
-        @Override
-        public Stats[] newArray(int size) {
-            return new Stats[size];
-        }
-    };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        if (id != null) {
-            dest.writeInt(id);
-        } else {
-            dest.writeInt(0);
-        }
-        dest.writeInt(strength);
-        dest.writeInt(dexterity);
-        dest.writeInt(intelligence);
-        dest.writeInt(constitution);
-        dest.writeInt(speed);
-        dest.writeInt(xp);
     }
 
     public Integer getId() {

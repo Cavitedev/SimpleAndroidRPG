@@ -1,7 +1,7 @@
 package com.example.simplerpg.ui.partyGrid;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +14,11 @@ import androidx.fragment.app.Fragment;
 import com.example.simplerpg.R;
 import com.example.simplerpg.models.Hero;
 import com.example.simplerpg.models.Party;
+import com.example.simplerpg.ui.heroProfile.HeroProfileActivity;
 import com.example.simplerpg.ui.listeners.ClickListener;
 import com.example.simplerpg.ui.listeners.DragListener;
 import com.example.simplerpg.ui.listeners.LongTouchListener;
+import com.google.gson.Gson;
 
 
 public class PartyGridFragment extends Fragment implements ClickListener.OnElementListener {
@@ -133,7 +135,9 @@ public class PartyGridFragment extends Fragment implements ClickListener.OnEleme
 
     @Override
     public void onElementClick(Hero hero) {
-        Log.i("HEROCLICKED", hero.toString());
+        Intent heroProfile = new Intent(this.getActivity(), HeroProfileActivity.class);
+        heroProfile.putExtra("hero", new Gson().toJson(hero));
+        startActivity(heroProfile);
     }
 
 }

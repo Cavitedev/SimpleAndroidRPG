@@ -18,7 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 
 
 public class HeroPropertiesFragment extends Fragment {
-    private Bundle bundle;
+    private Hero hero;
 
     public HeroPropertiesFragment() {
         // Required empty public constructor
@@ -34,9 +34,7 @@ public class HeroPropertiesFragment extends Fragment {
 
     public static HeroPropertiesFragment newInstance(Hero hero) {
         HeroPropertiesFragment fragment = new HeroPropertiesFragment();
-        Bundle args = new Bundle();
-        args.putParcelable("hero", hero);
-        fragment.setArguments(args);
+        fragment.hero = hero;
         return fragment;
     }
 
@@ -49,7 +47,6 @@ public class HeroPropertiesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        bundle = getArguments();
         return inflater.inflate(R.layout.fragment_hero_properties, container, false);
     }
 
@@ -58,7 +55,7 @@ public class HeroPropertiesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ViewPager viewPager = view.findViewById(R.id.heroProperties_viewPager);
-        viewPager.setAdapter(new HeroPropertiesPageAdapter(getChildFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, bundle));
+        viewPager.setAdapter(new HeroPropertiesPageAdapter(getChildFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, hero));
 
         TabLayout tabLayout = view.findViewById(R.id.heroProperties_tabLayout);
         tabLayout.setupWithViewPager(viewPager);
