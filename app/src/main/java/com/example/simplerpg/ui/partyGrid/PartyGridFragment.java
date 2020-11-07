@@ -1,6 +1,7 @@
 package com.example.simplerpg.ui.partyGrid;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,21 +14,24 @@ import androidx.fragment.app.Fragment;
 import com.example.simplerpg.R;
 import com.example.simplerpg.models.Hero;
 import com.example.simplerpg.models.Party;
+import com.example.simplerpg.ui.listeners.ClickListener;
 import com.example.simplerpg.ui.listeners.DragListener;
-import com.example.simplerpg.ui.listeners.TouchListener;
+import com.example.simplerpg.ui.listeners.LongTouchListener;
 
 
-public class PartyGridFragment extends Fragment {
+public class PartyGridFragment extends Fragment implements ClickListener.OnElementListener {
 
     private Party party;
 
     private Context context;
 
-    private TouchListener touchListener;
+    private LongTouchListener longTouchListener;
     private DragListener dragListener;
+    private ClickListener clickListener;
+
 
     public enum Context {
-        COMBAT, FORMATION
+        COMBAT, FORMATION;
     }
 
     public PartyGridFragment() {
@@ -68,8 +72,8 @@ public class PartyGridFragment extends Fragment {
         FrameLayout frameLayout = getView().findViewById(R.id.upLeft);
         HeroFragment heroFragment = (HeroFragment) getFragmentManager().findFragmentById(R.id.upLeftFragment);
 
-        touchListener = new TouchListener();
-        dragListener = new DragListener(touchListener, party);
+        longTouchListener = new LongTouchListener();
+        dragListener = new DragListener(longTouchListener, party);
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
@@ -117,15 +121,19 @@ public class PartyGridFragment extends Fragment {
                     frameLayout.setOnDragListener(dragListener);
 
                     if (hero != null) {
+                        clickListener = new ClickListener(hero, this);
+                        heroFragment.getView().setOnClickListener(clickListener);
                         heroFragment.setUIData();
-                        heroFragment.getView().setOnTouchListener(touchListener);
+                        heroFragment.getView().setOnLongClickListener(longTouchListener);
                     }
                 }
             }
         }
     }
 
-    public Party getParty() {
-        return party;
+    @Override
+    public void onElementClick(Hero hero) {
+        Log.i("HEROCLICKED", hero.toString());
     }
+
 }

@@ -12,12 +12,12 @@ import com.example.simplerpg.models.Party;
 
 public class DragListener implements View.OnDragListener {
 
-    private TouchListener myTouchListener;
+    private LongTouchListener myLongTouchListener;
     private ViewGroup firstContainer;
     private Party party;
 
-    public DragListener(TouchListener myTouchListener, Party party) {
-        this.myTouchListener = myTouchListener;
+    public DragListener(LongTouchListener myLongTouchListener, Party party) {
+        this.myLongTouchListener = myLongTouchListener;
         this.party = party;
     }
 
@@ -38,7 +38,7 @@ public class DragListener implements View.OnDragListener {
                 ViewGroup owner = (ViewGroup) view.getParent();
                 owner.removeView(view);
 
-                firstContainer = (ViewGroup) myTouchListener.getViewParent();
+                firstContainer = (ViewGroup) myLongTouchListener.getViewParent();
                 ViewGroup container = (ViewGroup) v;
 
                 View child = container.getChildAt(0);
@@ -107,7 +107,4 @@ public class DragListener implements View.OnDragListener {
         return position;
     }
 
-    public Party getParty() {
-        return party;
-    }
 }
