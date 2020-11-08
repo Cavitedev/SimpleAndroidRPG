@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="partyGrid_verticalPadding">5dp</dimen>
+    <dimen name="partyGrid_horizontalPadding">20dp</dimen>
+</resources>

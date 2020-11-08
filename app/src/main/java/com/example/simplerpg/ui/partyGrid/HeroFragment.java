@@ -25,7 +25,8 @@ public class HeroFragment extends Fragment {
 
     private Hero hero;
 
-    private ImageView imageView;
+    private ImageView imageViewHero;
+    private ImageView imageViewCard;
     private RoundCornerProgressBar healthProgressBar;
 
     public HeroFragment() {
@@ -53,7 +54,8 @@ public class HeroFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        imageView = view.findViewById(R.id.heroFragment_image);
+        imageViewHero = view.findViewById(R.id.heroFragment_image);
+        imageViewCard = view.findViewById(R.id.heroFragment_card);
         healthProgressBar = view.findViewById(R.id.heroFragment_healthProgressBar);
         setUIData();
     }
@@ -67,7 +69,8 @@ public class HeroFragment extends Fragment {
             String uri = "@drawable/" + hero.getImage();
             int imageResource = getResources().getIdentifier(uri, null, getActivity().getPackageName());
             Drawable res = getResources().getDrawable(imageResource);
-            imageView.setImageDrawable(res);
+            imageViewHero.setImageDrawable(res);
+            imageViewCard.setImageResource(R.drawable.cardblue);
 
             healthProgressBar.setVisibility(View.VISIBLE);
             healthProgressBar.setProgress(100);

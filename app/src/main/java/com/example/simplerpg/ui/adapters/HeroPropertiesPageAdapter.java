@@ -24,9 +24,9 @@ public class HeroPropertiesPageAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                return HeroStatsFragment.newInstance(hero.getStats());
+                return HeroStatsFragment.newInstance(hero != null ? hero.getStats() : null);
             case 1:
-                return HeroAbilitiesFragment.newInstance(hero.getAbilitiesLearned());
+                return HeroAbilitiesFragment.newInstance(hero != null ? hero.getAbilitiesLearned() : null);
         }
         return null;
     }
