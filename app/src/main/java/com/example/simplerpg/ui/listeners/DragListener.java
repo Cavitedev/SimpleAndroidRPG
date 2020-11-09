@@ -5,13 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.models.Hero;
 import com.example.simplerpg.models.Party;
 
 public class DragListener implements View.OnDragListener {
 
     private LongTouchListener myLongTouchListener;
-    private ViewGroup firstContainer;
     private Party party;
 
     public DragListener(LongTouchListener myLongTouchListener, Party party) {
@@ -20,59 +18,54 @@ public class DragListener implements View.OnDragListener {
     }
 
     @Override
-    public boolean onDrag(View v, DragEvent dragEvent) {
+    public boolean onDrag(View view, DragEvent dragEvent) {
         int action = dragEvent.getAction();
-        View view = (View) dragEvent.getLocalState();
+        View firstFragmentView = (View) dragEvent.getLocalState();
         switch (action) {
-            case DragEvent.ACTION_DRAG_ENTERED:
-            case DragEvent.ACTION_DRAG_EXITED:
-                v.invalidate();
-                break;
             case DragEvent.ACTION_DRAG_ENDED:
-                view.setVisibility(View.VISIBLE);
-                v.invalidate();
+                undoInvisibility(firstFragmentView);
                 break;
             case DragEvent.ACTION_DROP:
-                ViewGroup owner = (ViewGroup) view.getParent();
-                owner.removeView(view);
-
-                firstContainer = (ViewGroup) myLongTouchListener.getViewParent();
-                ViewGroup container = (ViewGroup) v;
-
-                View child = container.getChildAt(0);
-
-                if (child != null) {
-                    container.removeViewAt(0);
-                    firstContainer.addView(child);
-                }
-
-                container.addView(view);
-                view.setVisibility(View.VISIBLE);
-
-                managePartyChanges(firstContainer, container);
-
+                performHerosSwitch((ViewGroup) view, firstFragmentView);
                 break;
             default:
                 break;
 
         }
-
         return true;
     }
+    private void undoInvisibility(View view) {
+        view.setVisibility(View.VISIBLE);
+    }
 
-    private void managePartyChanges(ViewGroup firstContainer, ViewGroup secondContainer) {
-        int[] firstViewPosition = position(firstContainer);
-        int[] secondViewPosition = position(secondContainer);
+    private void performHerosSwitch(ViewGroup secondContainer, View firstFragmentView) {
+        ViewGroup firstContainer = (ViewGroup) firstFragmentView.getParent();
+        firstContainer.removeView(firstFragmentView);
 
-        Hero firstHero = party.getHeroAt(firstViewPosition[0], firstViewPosition[1]);
-        Hero secondHero = party.getHeroAt(secondViewPosition[0], secondViewPosition[1]);
+        View secondFragmentView = secondContainer.getChildAt(0);
 
-        party.putHeroAt(firstHero, secondViewPosition[0], secondViewPosition[1]);
-        party.putHeroAt(secondHero, firstViewPosition[0], firstViewPosition[1]);
+        if (secondFragmentView != null) {
+            secondContainer.removeViewAt(0);
+            firstContainer.addView(secondFragmentView);
+        }
+
+        secondContainer.addView(firstFragmentView);
+
+        updatePartyPositions(firstContainer, secondContainer);
+    }
+
+
+
+    private void updatePartyPositions(ViewGroup firstContainer, ViewGroup secondContainer) {
+
+        int[] firstHeroPosition = calculatePosition(firstContainer);
+        int[] secondHeroPosition = calculatePosition(secondContainer);
+
+        party.switchHeros(firstHeroPosition,secondHeroPosition);
 
     }
 
-    private int[] position(View view) {
+    private int[] calculatePosition(View view) {
         int[] position = new int[2];
         switch (view.getId()) {
             case R.id.upLeft:

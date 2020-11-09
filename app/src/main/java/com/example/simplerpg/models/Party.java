@@ -45,6 +45,17 @@ public class Party {
         heroes[x][y] = hero;
     }
 
+    public void switchHeros(int[] firstPosition, int[]secondPosition){
+        switchHeros(firstPosition[0], firstPosition[1], secondPosition[0], secondPosition[1]);
+    }
+
+    public void switchHeros(int x1, int y1, int x2, int y2){
+        Hero hero1 = getHeroAt(x1,y1);
+        Hero hero2 = getHeroAt(x2,y2);
+        putHeroAt(hero1,x2,y2);
+        putHeroAt(hero2,x1,y1);
+    }
+
     @Override
     public String toString() {
         StringBuilder party = new StringBuilder();
