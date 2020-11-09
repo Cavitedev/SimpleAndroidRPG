@@ -1,7 +1,5 @@
 package com.example.simplerpg.ui.listeners;
 
-import android.content.ClipDescription;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,17 +22,17 @@ public class DragListener implements View.OnDragListener {
     @Override
     public boolean onDrag(View v, DragEvent dragEvent) {
         int action = dragEvent.getAction();
+        View view = (View) dragEvent.getLocalState();
         switch (action) {
-            case DragEvent.ACTION_DRAG_STARTED:
-                dragEvent.getClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN);
-                break;
             case DragEvent.ACTION_DRAG_ENTERED:
             case DragEvent.ACTION_DRAG_EXITED:
+                v.invalidate();
+                break;
             case DragEvent.ACTION_DRAG_ENDED:
+                view.setVisibility(View.VISIBLE);
                 v.invalidate();
                 break;
             case DragEvent.ACTION_DROP:
-                View view = (View) dragEvent.getLocalState();
                 ViewGroup owner = (ViewGroup) view.getParent();
                 owner.removeView(view);
 
@@ -52,8 +50,6 @@ public class DragListener implements View.OnDragListener {
                 view.setVisibility(View.VISIBLE);
 
                 managePartyChanges(firstContainer, container);
-                Log.i("PARTY", "PARTY AT CHANGE\n" + party.toString());
-
 
                 break;
             default:
