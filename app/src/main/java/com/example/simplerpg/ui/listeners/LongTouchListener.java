@@ -4,7 +4,7 @@ import android.content.ClipData;
 import android.view.View;
 import android.view.ViewParent;
 
-public final class LongTouchListener implements View.OnLongClickListener {
+public class LongTouchListener implements View.OnLongClickListener {
 
     private ViewParent viewParent;
 

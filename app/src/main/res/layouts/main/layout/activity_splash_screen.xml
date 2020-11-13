@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/splashScreen_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SplashScreenActivity"
+    android:background="@drawable/splash_screen_white">
+
+    <TextView
+        android:id="@+id/splashScreen_text"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:fontFamily="@font/breathe"
+        android:gravity="center_horizontal|center_vertical"
+        android:paddingStart="4dp"
+        android:paddingBottom="4dp"
+
+        android:shadowColor="#025077"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="10"
+
+        android:text="@string/android_rpg"
+        android:textColor="#E6DEDE"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
+</androidx.constraintlayout.widget.ConstraintLayout>
