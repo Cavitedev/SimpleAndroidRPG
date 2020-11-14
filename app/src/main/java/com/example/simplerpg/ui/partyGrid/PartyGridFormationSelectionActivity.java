@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.simplerpg.R;
 import com.example.simplerpg.models.Party;
+import com.example.simplerpg.ui.heroProfile.heroProperties.HeroStatsFragment;
 
 public class PartyGridFormationSelectionActivity extends AppCompatActivity {
 
@@ -19,7 +20,9 @@ public class PartyGridFormationSelectionActivity extends AppCompatActivity {
         party = Party.getParty();
 
         PartyGridFragment partyGridFragment = PartyGridFragment.newInstance(party, PartyGridFragment.Context.FORMATION);
-
         getSupportFragmentManager().beginTransaction().add(R.id.partyGrid_formationSelectionFrameLayout, partyGridFragment).commit();
+
+        HeroStatsFragment averageStatsFragment = HeroStatsFragment.newInstance(party.getAverageStats(), HeroStatsFragment.Context.PARTY_FORMATION);
+        getSupportFragmentManager().beginTransaction().add(R.id.partyGrid_averageStatsFrameLayout, averageStatsFragment).commit();
     }
 }

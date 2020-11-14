@@ -111,17 +111,21 @@ public class Party {
         return party.toString();
     }
 
-    private static Party defaultParty() {
+    public static void setDefaultParty() {
+        party = defaultParty();
+    }
+
+    public static Party defaultParty() {
         Party party = new Party();
 
         ArrayList<Ability> abilities = new ArrayList<>();
         abilities.add(new Ability(null, "FireBall", "Launches a fire ball", Ability.Type.Special, 80));
-        abilities.add(new Ability(null, "Big Kick", "Gives a strong Dick", Ability.Type.Physical, 100));
+        abilities.add(new Ability(null, "Big Kick", "Gives a strong Kick", Ability.Type.Physical, 100));
         AbilitiesLearned abilitiesLearned = new AbilitiesLearned(abilities);
-        Stats exampleStats = new Stats(20, 10, 10, 30, 7, 680000);
-        Stats exampleStats1 = new Stats(12, 30, 7, 10, 26, 680000);
-        Stats exampleStats2 = new Stats(30, 7, 7, 20, 20, 680000);
-        Stats exampleStats3 = new Stats(30, 7, 30, 30, 19, 680000);
+        Stats exampleStats = new Stats(20, 10, 10, 30, 7, 0);
+        Stats exampleStats1 = new Stats(12, 30, 7, 10, 26, 0);
+        Stats exampleStats2 = new Stats(30, 7, 7, 20, 20, 0);
+        Stats exampleStats3 = new Stats(30, 7, 30, 30, 19, 0);
         Hero exampleHero = new Hero(null, "Tanky", "hero4", exampleStats, abilitiesLearned);
         Hero exampleHero1 = new Hero(null, "Archer", "hero9", exampleStats1, abilitiesLearned);
         Hero exampleHero2 = new Hero(null, "Berserker", "hero15", exampleStats2, abilitiesLearned);
@@ -135,5 +139,39 @@ public class Party {
 
         party.addHeroes(heroes);
         return party;
+    }
+
+    public Stats getAverageStats() {
+        ArrayList<Stats> heroesStats = new ArrayList<>();
+        int heroesCount = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 2; j++) {
+                if (this.heroes[i][j] != null) {
+                    heroesCount++;
+                    heroesStats.add(heroes[i][j].getStats());
+                }
+            }
+        }
+
+        int[] averageStats = new int[5];
+        int[] sumStats = new int[5];
+        for (Stats stats : heroesStats) {
+            sumStats[0] += stats.getStrength();
+            sumStats[1] += stats.getDexterity();
+            sumStats[2] += stats.getIntelligence();
+            sumStats[3] += stats.getConstitution();
+            sumStats[4] += stats.getSpeed();
+        }
+
+        averageStats[0] = sumStats[0] / heroesCount;
+        averageStats[1] = sumStats[1] / heroesCount;
+        averageStats[2] = sumStats[2] / heroesCount;
+        averageStats[3] = sumStats[3] / heroesCount;
+        averageStats[4] = sumStats[4] / heroesCount;
+
+        return new Stats(
+                averageStats[0], averageStats[1],
+                averageStats[2], averageStats[3],
+                averageStats[4], 0);
     }
 }

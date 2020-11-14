@@ -30,20 +30,24 @@ public class HeroStatsFragment extends Fragment {
 
 
     private TextView strengthTextView, dexterityTextView, intelligenceTextView, constitutionTextView, speedTextView, lvlTextView, xpTillNextLvlTextView;
-
     private RoundCornerProgressBar lvlProgressBar;
-
     private RadarChart statsChart;
 
     private Stats stats;
+    private Context context;
+
+    public enum Context {
+        HERO_PROFILE, PARTY_FORMATION
+    }
 
     public HeroStatsFragment() {
         // Required empty public constructor
     }
 
-    public static HeroStatsFragment newInstance(Stats stats) {
+    public static HeroStatsFragment newInstance(Stats stats, Context context) {
         HeroStatsFragment fragment = new HeroStatsFragment();
         fragment.stats = stats;
+        fragment.context = context;
         return fragment;
     }
 
@@ -125,12 +129,18 @@ public class HeroStatsFragment extends Fragment {
             constitutionTextView.setText(String.valueOf(stats.getConstitution()));
             speedTextView.setText(String.valueOf(stats.getSpeed()));
 
-            lvlTextView.setText(String.valueOf(stats.getLvl()));
-            xpTillNextLvlTextView.setText(String.valueOf(stats.getExpTillNextLvl()));
-
-            lvlProgressBar.setProgress((int) (stats.getXpPercentageTillCurrentLvl()));
-
             updateStatsChart();
+            if (context == Context.HERO_PROFILE) {
+                lvlTextView.setText(String.valueOf(stats.getLvl()));
+                xpTillNextLvlTextView.setText(String.valueOf(stats.getExpTillNextLvl()));
+                lvlProgressBar.setProgress((int) (stats.getXpPercentageTillCurrentLvl()));
+            } else {
+                lvlProgressBar.setVisibility(View.INVISIBLE);
+                xpTillNextLvlTextView.setVisibility(View.INVISIBLE);
+                lvlTextView.setVisibility(View.INVISIBLE);
+                getView().findViewById(R.id.heroStats_textViewLvl).setVisibility(View.INVISIBLE);
+                getView().findViewById(R.id.heroStats_textViewXpRemaining).setVisibility(View.INVISIBLE);
+            }
         }
     }
 

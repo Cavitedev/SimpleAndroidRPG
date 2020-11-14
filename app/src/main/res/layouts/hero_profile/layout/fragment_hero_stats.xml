@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline23" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/heroStats_textViewXpRemaining"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
@@ -148,7 +148,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
         <TextView
-            android:id="@+id/heroProfile_lvlTextView2"
+            android:id="@+id/heroStats_textViewLvl"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
