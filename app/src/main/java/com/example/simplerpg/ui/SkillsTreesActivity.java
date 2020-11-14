@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.ui.adapters.AbilityTreePageAdapter;
+import com.example.simplerpg.adapters.AbilityTreePageAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SkillsTreesActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {

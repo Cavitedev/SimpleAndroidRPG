@@ -1,67 +1,60 @@
-package com.example.simplerpg.ui.adapters;
+package com.example.simplerpg.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.models.Ability;
 
-import java.util.ArrayList;
+public class HeroImageAdapter extends RecyclerView.Adapter<HeroImageAdapter.ViewHolderData> {
 
-public class AbilitiesAdapter extends RecyclerView.Adapter<AbilitiesAdapter.ViewHolderData> {
-
-    private ArrayList<Ability> abilities;
+    private int[] imagesID;
     private Context context;
     private OnElementListener onElementListener;
 
-    public AbilitiesAdapter(Context context, ArrayList<Ability> abilities, OnElementListener onElementListener) {
+    public HeroImageAdapter(Context context, int[] imagesID, OnElementListener onElementListener) {
         this.context = context;
-        this.abilities = abilities;
+        this.imagesID = imagesID;
         this.onElementListener = onElementListener;
     }
 
     @NonNull
     @Override
     public ViewHolderData onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.ability_list_item, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.single_heroimage, parent, false);
         return new ViewHolderData(view, onElementListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderData holder, int position) {
-        holder.assignData(abilities.get(position));
+        holder.assignData(imagesID[position]);
     }
 
     @Override
     public int getItemCount() {
-        return abilities.size();
+        return imagesID.length;
     }
 
     public class ViewHolderData extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView name, type, power;
-        OnElementListener onElementListener;
+        private ImageView imageViewHero;
+        private OnElementListener onElementListener;
 
         public ViewHolderData(@NonNull View itemView, OnElementListener onElementListener) {
             super(itemView);
-            name = itemView.findViewById(R.id.heroAbilities_listView_name);
-            power = itemView.findViewById(R.id.heroAbilities_listView_power);
-            type = itemView.findViewById(R.id.heroAbilities_listView_type);
+            imageViewHero = itemView.findViewById(R.id.singleHeroImage_imageView);
             this.onElementListener = onElementListener;
 
             itemView.setOnClickListener(this);
         }
 
-        public void assignData(Ability ability) {
-            name.setText(ability.getName());
-            power.setText(String.valueOf(ability.getPower()));
-            type.setText(ability.getType().toString());
+        public void assignData(int imageID) {
+            imageViewHero.setImageResource(imageID);
         }
 
         @Override

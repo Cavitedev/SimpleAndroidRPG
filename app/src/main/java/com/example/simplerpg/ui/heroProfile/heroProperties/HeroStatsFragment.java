@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.example.simplerpg.R;
+import com.example.simplerpg.chartCustom.StatsValueFormatter;
 import com.example.simplerpg.models.Stats;
-import com.example.simplerpg.ui.chartCustom.StatsValueFormatter;
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.MarkerView;

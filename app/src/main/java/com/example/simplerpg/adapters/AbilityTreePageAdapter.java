@@ -1,4 +1,4 @@
-package com.example.simplerpg.ui.adapters;
+package com.example.simplerpg.adapters;
 
 import android.os.Bundle;
 

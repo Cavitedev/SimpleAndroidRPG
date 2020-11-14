@@ -1,4 +1,4 @@
-package com.example.simplerpg.ui.chartCustom;
+package com.example.simplerpg.chartCustom;
 
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.formatter.ValueFormatter;

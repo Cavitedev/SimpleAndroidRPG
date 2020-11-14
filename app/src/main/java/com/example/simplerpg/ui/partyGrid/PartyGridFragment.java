@@ -12,12 +12,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
+import com.example.simplerpg.listeners.ClickListener;
+import com.example.simplerpg.listeners.DragListener;
+import com.example.simplerpg.listeners.LongTouchListener;
 import com.example.simplerpg.models.Hero;
 import com.example.simplerpg.models.Party;
 import com.example.simplerpg.ui.heroProfile.HeroProfileActivity;
-import com.example.simplerpg.ui.listeners.ClickListener;
-import com.example.simplerpg.ui.listeners.DragListener;
-import com.example.simplerpg.ui.listeners.LongTouchListener;
 import com.google.gson.Gson;
 
 
@@ -114,7 +114,12 @@ public class PartyGridFragment extends Fragment implements ClickListener.OnEleme
                         break;
                 }
 
-                Hero hero = party.getHeroAt(i, j);
+                Hero hero;
+                if (party != null) {
+                    hero = party.getHeroAt(i, j);
+                } else {
+                    hero = null;
+                }
 
                 heroFragment.putHero(hero);
 

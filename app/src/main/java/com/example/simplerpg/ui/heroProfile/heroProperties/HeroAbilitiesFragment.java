@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplerpg.R;
+import com.example.simplerpg.adapters.AbilitiesAdapter;
 import com.example.simplerpg.models.AbilitiesLearned;
 import com.example.simplerpg.models.Ability;
-import com.example.simplerpg.ui.adapters.AbilitiesAdapter;
 
 public class HeroAbilitiesFragment extends Fragment implements AbilitiesAdapter.OnElementListener {
 

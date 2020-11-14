@@ -1,4 +1,4 @@
-package com.example.simplerpg.ui.listeners;
+package com.example.simplerpg.listeners;
 
 import android.content.ClipData;
 import android.view.View;
