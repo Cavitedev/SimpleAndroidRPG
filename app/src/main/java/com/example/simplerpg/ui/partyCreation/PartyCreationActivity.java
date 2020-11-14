@@ -1,5 +1,6 @@
 package com.example.simplerpg.ui.partyCreation;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,10 +26,10 @@ import java.lang.reflect.Field;
 public class PartyCreationActivity extends AppCompatActivity {
 
     private final int MINIMUM_POINTS = 7;
-    private final int STAT_POINTS = 27;
+    private final int STAT_POINTS = 23;
 
     private ImageView heroImage;
-    private String heroImageName;
+    private String heroImageName = "hero5";
     private int pointsRemaining, strength, dexterity, intelligence, constitution, speed;
     private TextView textViewStrength, textViewDexterity, textViewIntelligence, textViewConstitution, textViewSpeed;
     private EditText editTextHeroName;
@@ -158,14 +159,16 @@ public class PartyCreationActivity extends AppCompatActivity {
 
     public void finishButton(View view) {
         if (pointsRemaining == 0) {
-            if (!editTextHeroName.getText().equals("")) {
+            if (!editTextHeroName.getText().toString().equals("")) {
                 createHero();
                 if (Party.getParty().getHeroesCount() < 4) {
                     nextHero();
+                    Toast.makeText(getBaseContext(), "Hero " + Party.getParty().getHeroesCount() + " created", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent mainActivity = new Intent(this, MainActivity.class);
                     startActivity(mainActivity);
                     finish();
+                    Toast.makeText(getBaseContext(), "Party created", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 Toast.makeText(getBaseContext(), "No hero name entered" + MINIMUM_POINTS, Toast.LENGTH_SHORT).show();
@@ -223,7 +226,7 @@ public class PartyCreationActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
             heroImageName = data.getStringExtra("heroImage");
             Class res = R.drawable.class;
             try {
