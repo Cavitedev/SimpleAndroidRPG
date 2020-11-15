@@ -3,6 +3,7 @@ package com.example.simplerpg.ui.partyCreation;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -190,10 +191,20 @@ public class PartyCreationActivity extends AppCompatActivity {
 
     private void resetUI() {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.bigandsmaller);
-        animation.setRepeatCount(Animation.INFINITE);
-        animation.setRepeatMode(Animation.REVERSE);
+        float animationScale = 1;
+        try {
+            animationScale = Settings.Global.getFloat(getContentResolver(), Settings.Global.ANIMATOR_DURATION_SCALE);
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
+        if(animationScale != 0){
+            long newDuration = (long)(animation.getDuration() * animationScale);
+            animation.setDuration(newDuration);
+            animation.setRepeatCount(Animation.INFINITE);
+            animation.setRepeatMode(Animation.REVERSE);
+            heroImage.startAnimation(animation);
+        }
 
-        heroImage.startAnimation(animation);
 
         strength = dexterity = intelligence = constitution = speed = MINIMUM_POINTS;
         pointsRemaining = STAT_POINTS;
