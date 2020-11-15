@@ -21,6 +21,10 @@ android {
         }
     }
 
+    testOptions {
+        animationsDisabled = true
+    }
+
     sourceSets {
         main {
             res.srcDirs =
