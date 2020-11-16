@@ -2,7 +2,9 @@ package com.example.simplerpg.ui.partyCreation;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -171,10 +173,10 @@ public class PartyCreationActivity extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Party created", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(getBaseContext(), "No hero name entered" + MINIMUM_POINTS, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), getString(R.string.no_name_entered_toast), Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(getBaseContext(), pointsRemaining + " points remaining" + MINIMUM_POINTS, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), pointsRemaining + getString(R.string.points_remaining_toast) + MINIMUM_POINTS, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -190,10 +192,20 @@ public class PartyCreationActivity extends AppCompatActivity {
 
     private void resetUI() {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.bigandsmaller);
-        animation.setRepeatCount(Animation.INFINITE);
-        animation.setRepeatMode(Animation.REVERSE);
+        float animationScale = 1;
+        try {
+            animationScale = Settings.Global.getFloat(getContentResolver(), Settings.Global.ANIMATOR_DURATION_SCALE);
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
+        if(animationScale != 0){
+            long newDuration = (long)(animation.getDuration() * animationScale);
+            animation.setDuration(newDuration);
+            animation.setRepeatCount(Animation.INFINITE);
+            animation.setRepeatMode(Animation.REVERSE);
+            heroImage.startAnimation(animation);
+        }
 
-        heroImage.startAnimation(animation);
 
         strength = dexterity = intelligence = constitution = speed = MINIMUM_POINTS;
         pointsRemaining = STAT_POINTS;
@@ -216,11 +228,11 @@ public class PartyCreationActivity extends AppCompatActivity {
     }
 
     private void showMinimumStatMessage() {
-        Toast.makeText(getBaseContext(), "Minimum stat value is " + MINIMUM_POINTS, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getBaseContext(), getString(R.string.minimum_stat_toast) + MINIMUM_POINTS, Toast.LENGTH_SHORT).show();
     }
 
     private void showNoPointsRemainingMessage() {
-        Toast.makeText(this, "No points remaining", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.no_points_remaining_toast, Toast.LENGTH_SHORT).show();
     }
 
     @Override

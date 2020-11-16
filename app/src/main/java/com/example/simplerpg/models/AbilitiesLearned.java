@@ -16,4 +16,19 @@ public class AbilitiesLearned {
         return abilities;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AbilitiesLearned)) return false;
+
+        AbilitiesLearned that = (AbilitiesLearned) o;
+
+        return getAbilities() != null ? getAbilities().equals(that.getAbilities()) : that.getAbilities() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return getAbilities() != null ? getAbilities().hashCode() : 0;
+    }
 }

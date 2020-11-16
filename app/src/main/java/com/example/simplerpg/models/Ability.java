@@ -38,4 +38,20 @@ public class Ability {
     public int getPower() {
         return power;
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ability)) return false;
+
+        Ability ability = (Ability) o;
+
+        return getId() != null ? getId().equals(ability.getId()) : ability.getId() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return getId() != null ? getId().hashCode() : 0;
+    }
 }

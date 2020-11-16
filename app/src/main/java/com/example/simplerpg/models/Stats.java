@@ -136,4 +136,36 @@ public class Stats {
                 ", speed=" + speed +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Stats)) return false;
+
+        Stats stats = (Stats) o;
+
+        if (getStrength() != stats.getStrength()) return false;
+        if (getDexterity() != stats.getDexterity()) return false;
+        if (getIntelligence() != stats.getIntelligence()) return false;
+        if (getConstitution() != stats.getConstitution()) return false;
+        if (getSpeed() != stats.getSpeed()) return false;
+        if (getXp() != stats.getXp()) return false;
+        if (getMaxHealth() != stats.getMaxHealth()) return false;
+        if (getCurrentHealth() != stats.getCurrentHealth()) return false;
+        return getId() != null ? getId().equals(stats.getId()) : stats.getId() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + getStrength();
+        result = 31 * result + getDexterity();
+        result = 31 * result + getIntelligence();
+        result = 31 * result + getConstitution();
+        result = 31 * result + getSpeed();
+        result = 31 * result + getXp();
+        result = 31 * result + getMaxHealth();
+        result = 31 * result + getCurrentHealth();
+        return result;
+    }
 }

@@ -1,9 +1,12 @@
 package com.example.simplerpg.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Party {
     private static Party party = null;
+
+
 
     Hero[][] heroes = new Hero[3][2];
 
@@ -173,5 +176,22 @@ public class Party {
                 averageStats[0], averageStats[1],
                 averageStats[2], averageStats[3],
                 averageStats[4], 0);
+    }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Party party = (Party) o;
+
+        return Arrays.deepEquals(heroes, party.heroes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.deepHashCode(heroes);
     }
 }
