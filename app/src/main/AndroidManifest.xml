@@ -8,11 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:hardwareAccelerated="true">
         <activity android:name=".ui.partyCreation.PartyCreationActivity"></activity>
         <activity android:name=".ui.partyCreation.HeroImageSelectionActivity" />
         <activity android:name=".ui.partyGrid.PartyGridFormationSelectionActivity" />
-        <activity android:name=".ui.partyGrid.BattleActivity" />
+        <activity android:name=".ui.battle.BattleActivity" />
         <activity android:name=".ui.SkillsTreesActivity" />
         <activity android:name=".ui.heroProfile.HeroProfileActivity" />
         <activity

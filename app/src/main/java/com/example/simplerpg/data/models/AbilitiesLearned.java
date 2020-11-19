@@ -1,4 +1,4 @@
-package com.example.simplerpg.models;
+package com.example.simplerpg.data.models;
 
 import java.util.ArrayList;
 

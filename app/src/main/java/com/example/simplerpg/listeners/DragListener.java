@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.models.Party;
+import com.example.simplerpg.data.models.Party;
 
 public class DragListener implements View.OnDragListener {
 

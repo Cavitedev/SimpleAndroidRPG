@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.heroProfile.heroProperties.HeroStatsFragment">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="stats"
+            type="com.example.simplerpg.data.models.Stats" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".ui.heroProfile.heroProperties.HeroStatsFragment">
 
         <TextView
             android:id="@+id/heroStats_intelligence"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="1"
-            app:autoSizeTextType="uniform"
+            android:text="@{stats.intelligence"
             app:autoSizeMaxTextSize="20sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline24"
             app:layout_constraintEnd_toStartOf="@+id/guideline18"
             app:layout_constraintStart_toStartOf="@+id/guideline15"
@@ -29,8 +34,8 @@
             android:layout_height="0dp"
             android:gravity="center"
             android:text="@string/xp_remaining"
-            app:autoSizeTextType="uniform"
             app:autoSizeMaxTextSize="15sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline22"
             app:layout_constraintEnd_toStartOf="@+id/heroStats_lvlXpTillNextLevel"
             app:layout_constraintHorizontal_bias="1.0"
@@ -42,9 +47,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="1"
-            app:autoSizeTextType="uniform"
+            android:text="@{stats.strength}"
             app:autoSizeMaxTextSize="20sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline21"
             app:layout_constraintEnd_toStartOf="@+id/guideline18"
             app:layout_constraintStart_toEndOf="@+id/heroProfile_strenghTextView2"
@@ -57,8 +62,8 @@
             android:layout_height="0dp"
             android:gravity="start|center_vertical"
             android:text="@string/dexterity"
-            app:autoSizeTextType="uniform"
             app:autoSizeMaxTextSize="20sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline23"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
             app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -69,9 +74,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="1"
-            app:autoSizeTextType="uniform"
+            android:text="@{stats.dexterity}"
             app:autoSizeMaxTextSize="20sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline23"
             app:layout_constraintEnd_toStartOf="@+id/guideline18"
             app:layout_constraintStart_toStartOf="@+id/guideline15"
@@ -89,6 +94,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline15"
             app:layout_constraintTop_toTopOf="@+id/guideline32"
 
+            app:rcProgress="@{stats.xpPercentageTillCurrentLvl}"
             app:rcBackgroundColor="#0A000000"
             app:rcBackgroundPadding="2dp"
             app:rcMax="100"
@@ -101,9 +107,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="1"
-            app:autoSizeTextType="uniform"
+            android:text="@{stats.speed}"
             app:autoSizeMaxTextSize="20sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline20"
             app:layout_constraintEnd_toStartOf="@+id/guideline18"
             app:layout_constraintStart_toStartOf="@+id/guideline15"
@@ -114,7 +120,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="10"
+            android:text="@{stats.lvl}"
             app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline17"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
@@ -127,8 +133,8 @@
             android:layout_height="0dp"
             android:gravity="start|center_vertical"
             android:text="@string/constitution"
-            app:autoSizeTextType="uniform"
             app:autoSizeMaxTextSize="20sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline25"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
             app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -139,9 +145,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="23"
-            app:autoSizeTextType="uniform"
+            android:text="@{stats.expTillNextLvl}"
             app:autoSizeMaxTextSize="15sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline22"
             app:layout_constraintEnd_toStartOf="@+id/guideline14"
             app:layout_constraintStart_toStartOf="@+id/guideline19"
@@ -165,8 +171,8 @@
             android:layout_height="0dp"
             android:gravity="start|center_vertical"
             android:text="@string/strength"
-            app:autoSizeTextType="uniform"
             app:autoSizeMaxTextSize="20sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline21"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
             app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -179,8 +185,8 @@
             android:layout_height="0dp"
             android:gravity="start|center_vertical"
             android:text="@string/intelligence"
-            app:autoSizeTextType="uniform"
             app:autoSizeMaxTextSize="20sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline24"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
             app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -192,8 +198,8 @@
             android:layout_height="0dp"
             android:gravity="start|center_vertical"
             android:text="@string/speed"
-            app:autoSizeTextType="uniform"
             app:autoSizeMaxTextSize="20sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline20"
             app:layout_constraintEnd_toStartOf="@+id/guideline15"
             app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -204,9 +210,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="1"
-            app:autoSizeTextType="uniform"
+            android:text="@{stats.constitution}"
             app:autoSizeMaxTextSize="20sp"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toTopOf="@+id/guideline25"
             app:layout_constraintEnd_toStartOf="@+id/guideline18"
             app:layout_constraintStart_toStartOf="@+id/guideline15"
@@ -330,4 +336,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</layout>

@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.simplerpg.models.Hero;
+import com.example.simplerpg.data.models.Hero;
 import com.example.simplerpg.ui.heroProfile.heroProperties.HeroAbilitiesFragment;
 import com.example.simplerpg.ui.heroProfile.heroProperties.HeroStatsFragment;
 

@@ -13,7 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.simplerpg.R;
 import com.example.simplerpg.adapters.HeroPropertiesPageAdapter;
-import com.example.simplerpg.models.Hero;
+import com.example.simplerpg.data.models.Hero;
 import com.google.android.material.tabs.TabLayout;
 
 

@@ -14,6 +14,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures{
+        dataBinding true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -33,6 +37,7 @@ android {
                             'src/main/res/layouts/main',
                             'src/main/res/layouts/battle',
                             'src/main/res/layouts/party_creation',
+                            'src/main/res/layouts/party_formation',
                             'src/main/res/layouts',
                             'src/main/res'
                     ]

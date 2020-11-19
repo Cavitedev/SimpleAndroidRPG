@@ -2,7 +2,6 @@ package com.example.simplerpg.ui.partyCreation;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -17,10 +16,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.models.AbilitiesLearned;
-import com.example.simplerpg.models.Hero;
-import com.example.simplerpg.models.Party;
-import com.example.simplerpg.models.Stats;
+import com.example.simplerpg.data.models.AbilitiesLearned;
+import com.example.simplerpg.data.models.Hero;
+import com.example.simplerpg.data.models.Party;
+import com.example.simplerpg.data.models.Stats;
 import com.example.simplerpg.ui.MainActivity;
 
 import java.lang.reflect.Field;
@@ -53,13 +52,10 @@ public class PartyCreationActivity extends AppCompatActivity {
 
         resetUI();
 
-        heroImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                heroImage.clearAnimation();
-                Intent selectImage = new Intent(getApplicationContext(), HeroImageSelectionActivity.class);
-                startActivityForResult(selectImage, 1);
-            }
+        heroImage.setOnClickListener(v -> {
+            heroImage.clearAnimation();
+            Intent selectImage = new Intent(getApplicationContext(), HeroImageSelectionActivity.class);
+            startActivityForResult(selectImage, 1);
         });
     }
 
@@ -176,7 +172,7 @@ public class PartyCreationActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), getString(R.string.no_name_entered_toast), Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(getBaseContext(), pointsRemaining + getString(R.string.points_remaining_toast) + MINIMUM_POINTS, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), pointsRemaining + " " + getString(R.string.points_remaining_toast), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -203,6 +199,7 @@ public class PartyCreationActivity extends AppCompatActivity {
             animation.setDuration(newDuration);
             animation.setRepeatCount(Animation.INFINITE);
             animation.setRepeatMode(Animation.REVERSE);
+            heroImage.setDrawingCacheEnabled(true);
             heroImage.startAnimation(animation);
         }
 
@@ -228,7 +225,7 @@ public class PartyCreationActivity extends AppCompatActivity {
     }
 
     private void showMinimumStatMessage() {
-        Toast.makeText(getBaseContext(), getString(R.string.minimum_stat_toast) + MINIMUM_POINTS, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getBaseContext(), getString(R.string.minimum_stat_toast) + " " + MINIMUM_POINTS, Toast.LENGTH_SHORT).show();
     }
 
     private void showNoPointsRemainingMessage() {

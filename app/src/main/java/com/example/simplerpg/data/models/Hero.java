@@ -1,6 +1,4 @@
-package com.example.simplerpg.models;
-
-import java.util.Objects;
+package com.example.simplerpg.data.models;
 
 public class Hero {
 

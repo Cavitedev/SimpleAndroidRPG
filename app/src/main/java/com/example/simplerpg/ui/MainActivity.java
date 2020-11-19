@@ -8,7 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.models.Party;
+import com.example.simplerpg.data.models.Party;
+import com.example.simplerpg.ui.battle.BattleActivity;
 import com.example.simplerpg.ui.partyCreation.PartyCreationActivity;
 import com.example.simplerpg.ui.partyGrid.PartyGridFormationSelectionActivity;
 
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        //Party.setDefaultParty();
+        Party.setDefaultParty();
         if (Party.getParty() != null) {
             party = Party.getParty();
         } else {
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonGoToPartyFormation(View view) {
         Intent partyGrid = new Intent(this, PartyGridFormationSelectionActivity.class);
+        startActivity(partyGrid);
+    }
+
+    public void buttonGoToBattle(View view) {
+        Intent partyGrid = new Intent(this, BattleActivity.class);
         startActivity(partyGrid);
     }
 }

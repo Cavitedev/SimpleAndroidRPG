@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.example.simplerpg.R;
-import com.example.simplerpg.models.Hero;
+import com.example.simplerpg.data.models.Hero;
 
 /**
  * A simple {@link Fragment} subclass.

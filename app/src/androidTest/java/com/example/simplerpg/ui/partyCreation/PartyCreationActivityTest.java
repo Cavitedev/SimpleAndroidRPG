@@ -10,10 +10,10 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.example.simplerpg.MyMatchers;
 import com.example.simplerpg.R;
-import com.example.simplerpg.models.AbilitiesLearned;
-import com.example.simplerpg.models.Hero;
-import com.example.simplerpg.models.Party;
-import com.example.simplerpg.models.Stats;
+import com.example.simplerpg.data.models.AbilitiesLearned;
+import com.example.simplerpg.data.models.Hero;
+import com.example.simplerpg.data.models.Party;
+import com.example.simplerpg.data.models.Stats;
 
 import org.hamcrest.Matchers;
 import org.junit.Before;

@@ -12,11 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
+import com.example.simplerpg.data.models.Hero;
+import com.example.simplerpg.data.models.Party;
 import com.example.simplerpg.listeners.ClickListener;
 import com.example.simplerpg.listeners.DragListener;
 import com.example.simplerpg.listeners.LongTouchListener;
-import com.example.simplerpg.models.Hero;
-import com.example.simplerpg.models.Party;
 import com.example.simplerpg.ui.heroProfile.HeroProfileActivity;
 import com.google.gson.Gson;
 
@@ -122,6 +122,7 @@ public class PartyGridFragment extends Fragment implements ClickListener.OnEleme
                 }
 
                 heroFragment.putHero(hero);
+                heroFragment.setUIData();
 
                 if (context == Context.FORMATION) {
 
@@ -130,7 +131,6 @@ public class PartyGridFragment extends Fragment implements ClickListener.OnEleme
                     if (hero != null) {
                         clickListener = new ClickListener(hero, this);
                         heroFragment.getView().setOnClickListener(clickListener);
-                        heroFragment.setUIData();
                         heroFragment.getView().setOnLongClickListener(longTouchListener);
                     }
                 }

@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.models.Ability;
+import com.example.simplerpg.data.models.Ability;
 
 
 public class AbilityDescriptionDialogFragment extends DialogFragment {

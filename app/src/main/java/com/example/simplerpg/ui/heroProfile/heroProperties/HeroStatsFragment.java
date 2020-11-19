@@ -5,16 +5,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.example.simplerpg.R;
 import com.example.simplerpg.chartCustom.StatsValueFormatter;
-import com.example.simplerpg.models.Stats;
+import com.example.simplerpg.data.models.Stats;
+import com.example.simplerpg.databinding.FragmentHeroStatsBinding;
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.MarkerView;
@@ -28,9 +28,6 @@ import java.util.ArrayList;
 
 public class HeroStatsFragment extends Fragment {
 
-
-    private TextView strengthTextView, dexterityTextView, intelligenceTextView, constitutionTextView, speedTextView, lvlTextView, xpTillNextLvlTextView;
-    private RoundCornerProgressBar lvlProgressBar;
     private RadarChart statsChart;
 
     private Stats stats;
@@ -59,8 +56,10 @@ public class HeroStatsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_hero_stats, container, false);
+        FragmentHeroStatsBinding binding = DataBindingUtil.inflate(inflater,
+                R.layout.fragment_hero_properties, container, false);
+        View view = binding.getRoot();
+        return view;
     }
 
     @Override
@@ -73,18 +72,20 @@ public class HeroStatsFragment extends Fragment {
     }
 
     private void getUIComponentsID(View view) {
-        strengthTextView = view.findViewById(R.id.heroStats_strengh);
-        dexterityTextView = view.findViewById(R.id.heroStats_dexterity);
-        intelligenceTextView = view.findViewById(R.id.heroStats_intelligence);
-        constitutionTextView = view.findViewById(R.id.heroStats_constitution);
-        speedTextView = view.findViewById(R.id.heroStats_speed);
-
-        lvlProgressBar = view.findViewById(R.id.heroProfile_lvlProgressBar);
-        lvlTextView = view.findViewById(R.id.heroStats_lvl);
-        xpTillNextLvlTextView = view.findViewById(R.id.heroStats_lvlXpTillNextLevel);
-
         statsChart = view.findViewById(R.id.heroStats_statsChart);
         statsChart.setLogEnabled(false);
+    }
+
+    public void updateUI() {
+        if (stats != null) {
+
+            updateStatsChart();
+
+            if (context != Context.HERO_PROFILE) {
+                getView().findViewById(R.id.heroStats_textViewLvl).setVisibility(View.INVISIBLE);
+                getView().findViewById(R.id.heroStats_textViewXpRemaining).setVisibility(View.INVISIBLE);
+            }
+        }
     }
 
     private void configureInitialUIValues() {
@@ -120,30 +121,6 @@ public class HeroStatsFragment extends Fragment {
         l.setEnabled(false);
     }
 
-    public void updateUI() {
-        if (stats != null) {
-
-            strengthTextView.setText(String.valueOf(stats.getStrength()));
-            dexterityTextView.setText(String.valueOf(stats.getDexterity()));
-            intelligenceTextView.setText(String.valueOf(stats.getIntelligence()));
-            constitutionTextView.setText(String.valueOf(stats.getConstitution()));
-            speedTextView.setText(String.valueOf(stats.getSpeed()));
-
-            updateStatsChart();
-            if (context == Context.HERO_PROFILE) {
-                lvlTextView.setText(String.valueOf(stats.getLvl()));
-                xpTillNextLvlTextView.setText(String.valueOf(stats.getExpTillNextLvl()));
-                lvlProgressBar.setProgress((int) (stats.getXpPercentageTillCurrentLvl()));
-            } else {
-                lvlProgressBar.setVisibility(View.INVISIBLE);
-                xpTillNextLvlTextView.setVisibility(View.INVISIBLE);
-                lvlTextView.setVisibility(View.INVISIBLE);
-                getView().findViewById(R.id.heroStats_textViewLvl).setVisibility(View.INVISIBLE);
-                getView().findViewById(R.id.heroStats_textViewXpRemaining).setVisibility(View.INVISIBLE);
-            }
-        }
-    }
-
     private void updateStatsChart() {
 
         ArrayList<RadarEntry> radarStats = new ArrayList<>();
@@ -173,6 +150,5 @@ public class HeroStatsFragment extends Fragment {
         statsChart.setData(data);
         statsChart.invalidate();
     }
-
 
 }
