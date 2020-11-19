@@ -1,5 +1,11 @@
 package com.example.simplerpg.data.models;
 
+import android.content.Context;
+
+import androidx.databinding.BindingAdapter;
+
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
+
 public class Stats {
 
     //Higher means more xp to get a hero to a lvl
@@ -101,6 +107,11 @@ public class Stats {
 
         double percentage = (((xp - xpCurrentLvl)) / ((xpNextLvl - xpCurrentLvl + 0.0))) * 100;
         return percentage;
+    }
+
+    @BindingAdapter("rcProgress")
+    public static void bindXpPercentage(Context context, RoundCornerProgressBar bar, float value){
+        bar.setProgress(value);
     }
 
 

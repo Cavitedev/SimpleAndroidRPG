@@ -94,7 +94,7 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline15"
                 app:layout_constraintTop_toTopOf="@+id/guideline32"
 
-                app:rcProgress="0.5"
+                app:rcProgress="@{Double.valueOf(stats.xpPercentageTillCurrentLvl).floatValue()}"
                 app:rcBackgroundColor="#0A000000"
                 app:rcBackgroundPadding="2dp"
                 app:rcMax="100"
@@ -102,7 +102,6 @@
                 app:rcRadius="10dp"
 
                 />
-<!--        app:rcProgress="@{String.valueOf(stats.xpPercentageTillCurrentLvl)}"-->
 
         <TextView
                 android:id="@+id/heroStats_speed"
