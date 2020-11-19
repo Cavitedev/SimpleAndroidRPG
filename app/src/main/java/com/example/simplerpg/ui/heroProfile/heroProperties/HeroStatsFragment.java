@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
@@ -56,8 +55,8 @@ public class HeroStatsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FragmentHeroStatsBinding binding = DataBindingUtil.inflate(inflater,
-                R.layout.fragment_hero_properties, container, false);
+        FragmentHeroStatsBinding binding = FragmentHeroStatsBinding.inflate(inflater,
+                 container, false);
         View view = binding.getRoot();
         return view;
     }
