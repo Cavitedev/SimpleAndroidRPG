@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
 import com.example.simplerpg.chartCustom.StatsValueFormatter;
+import com.example.simplerpg.data.models.Party;
 import com.example.simplerpg.data.models.Stats;
 import com.example.simplerpg.databinding.FragmentHeroStatsBinding;
 import com.github.mikephil.charting.charts.RadarChart;
@@ -49,6 +50,7 @@ public class HeroStatsFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
 
@@ -57,6 +59,7 @@ public class HeroStatsFragment extends Fragment {
                              Bundle savedInstanceState) {
         FragmentHeroStatsBinding binding = FragmentHeroStatsBinding.inflate(inflater,
                  container, false);
+        binding.setStats(stats);
         View view = binding.getRoot();
         return view;
     }

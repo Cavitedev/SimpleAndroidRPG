@@ -1,342 +1,340 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-            name="stats"
-            type="com.example.simplerpg.data.models.Stats" />
+                name="stats"
+                type="com.example.simplerpg.data.models.Stats" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.heroProfile.heroProperties.HeroStatsFragment">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.heroProfile.heroProperties.HeroStatsFragment">
 
         <TextView
-            android:id="@+id/heroStats_intelligence"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@{stats.intelligence}"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline24"
-            app:layout_constraintEnd_toStartOf="@+id/guideline18"
-            app:layout_constraintStart_toStartOf="@+id/guideline15"
-            app:layout_constraintTop_toTopOf="@+id/guideline23" />
+                android:id="@+id/heroStats_intelligence"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text='@{String.valueOf(stats.intelligence)}'
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline24"
+                app:layout_constraintEnd_toStartOf="@+id/guideline18"
+                app:layout_constraintStart_toStartOf="@+id/guideline15"
+                app:layout_constraintTop_toTopOf="@+id/guideline23" />
 
         <TextView
-            android:id="@+id/heroStats_textViewXpRemaining"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@string/xp_remaining"
-            app:autoSizeMaxTextSize="15sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline22"
-            app:layout_constraintEnd_toStartOf="@+id/heroStats_lvlXpTillNextLevel"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline18"
-            app:layout_constraintTop_toTopOf="@+id/guideline17" />
+                android:id="@+id/heroStats_textViewXpRemaining"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/xp_remaining"
+                app:autoSizeMaxTextSize="15sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline22"
+                app:layout_constraintEnd_toStartOf="@+id/heroStats_lvlXpTillNextLevel"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline18"
+                app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
         <TextView
-            android:id="@+id/heroStats_strengh"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@{stats.strength}"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline21"
-            app:layout_constraintEnd_toStartOf="@+id/guideline18"
-            app:layout_constraintStart_toEndOf="@+id/heroProfile_strenghTextView2"
-            app:layout_constraintTop_toTopOf="@+id/guideline12"
-            app:layout_constraintVertical_bias="0.355" />
+                android:id="@+id/heroStats_strengh"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(stats.strength)}"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline21"
+                app:layout_constraintEnd_toStartOf="@+id/guideline18"
+                app:layout_constraintStart_toEndOf="@+id/heroProfile_strenghTextView2"
+                app:layout_constraintTop_toTopOf="@+id/guideline12"
+                app:layout_constraintVertical_bias="0.355" />
 
         <TextView
-            android:id="@+id/heroProfile_dexterityTextView2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="start|center_vertical"
-            android:text="@string/dexterity"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline23"
-            app:layout_constraintEnd_toStartOf="@+id/guideline15"
-            app:layout_constraintStart_toStartOf="@+id/guideline13"
-            app:layout_constraintTop_toTopOf="@+id/guideline21" />
+                android:id="@+id/heroProfile_dexterityTextView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="start|center_vertical"
+                android:text="@string/dexterity"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline23"
+                app:layout_constraintEnd_toStartOf="@+id/guideline15"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
         <TextView
-            android:id="@+id/heroStats_dexterity"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@{stats.dexterity}"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline23"
-            app:layout_constraintEnd_toStartOf="@+id/guideline18"
-            app:layout_constraintStart_toStartOf="@+id/guideline15"
-            app:layout_constraintTop_toTopOf="@+id/guideline21" />
+                android:id="@+id/heroStats_dexterity"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(stats.dexterity)}"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline23"
+                app:layout_constraintEnd_toStartOf="@+id/guideline18"
+                app:layout_constraintStart_toStartOf="@+id/guideline15"
+                app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-            android:id="@+id/heroProfile_lvlProgressBar"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="5dp"
+                android:id="@+id/heroProfile_lvlProgressBar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="5dp"
 
-            app:layout_constraintBottom_toTopOf="@+id/guideline17"
-            app:layout_constraintEnd_toStartOf="@+id/guideline14"
-            app:layout_constraintHeight_max="10dp"
-            app:layout_constraintStart_toStartOf="@+id/guideline15"
-            app:layout_constraintTop_toTopOf="@+id/guideline32"
+                app:layout_constraintBottom_toTopOf="@+id/guideline17"
+                app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                app:layout_constraintHeight_max="10dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline15"
+                app:layout_constraintTop_toTopOf="@+id/guideline32"
 
                 app:rcProgress="0.5"
-            app:rcBackgroundColor="#0A000000"
-            app:rcBackgroundPadding="2dp"
-            app:rcMax="100"
-            app:rcProgressColor="@color/colorPrimary"
-            app:rcRadius="10dp"
+                app:rcBackgroundColor="#0A000000"
+                app:rcBackgroundPadding="2dp"
+                app:rcMax="100"
+                app:rcProgressColor="@color/colorPrimary"
+                app:rcRadius="10dp"
 
                 />
-<!--            app:rcProgress="@{stats.xpPercentageTillCurrentLvl}"-->
-
-
+<!--        app:rcProgress="@{String.valueOf(stats.xpPercentageTillCurrentLvl)}"-->
 
         <TextView
-            android:id="@+id/heroStats_speed"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@{stats.speed}"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline20"
-            app:layout_constraintEnd_toStartOf="@+id/guideline18"
-            app:layout_constraintStart_toStartOf="@+id/guideline15"
-            app:layout_constraintTop_toTopOf="@+id/guideline25" />
+                android:id="@+id/heroStats_speed"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(stats.speed)}"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline20"
+                app:layout_constraintEnd_toStartOf="@+id/guideline18"
+                app:layout_constraintStart_toStartOf="@+id/guideline15"
+                app:layout_constraintTop_toTopOf="@+id/guideline25" />
 
         <TextView
-            android:id="@+id/heroStats_lvl"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@{stats.lvl}"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline17"
-            app:layout_constraintEnd_toStartOf="@+id/guideline15"
-            app:layout_constraintStart_toStartOf="@+id/guideline16"
-            app:layout_constraintTop_toTopOf="@+id/guideline32" />
+                android:id="@+id/heroStats_lvl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(stats.lvl)}"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline17"
+                app:layout_constraintEnd_toStartOf="@+id/guideline15"
+                app:layout_constraintStart_toStartOf="@+id/guideline16"
+                app:layout_constraintTop_toTopOf="@+id/guideline32" />
 
         <TextView
-            android:id="@+id/heroProfile_constitutionTextView2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="start|center_vertical"
-            android:text="@string/constitution"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline25"
-            app:layout_constraintEnd_toStartOf="@+id/guideline15"
-            app:layout_constraintStart_toStartOf="@+id/guideline13"
-            app:layout_constraintTop_toTopOf="@+id/guideline24" />
+                android:id="@+id/heroProfile_constitutionTextView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="start|center_vertical"
+                android:text="@string/constitution"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline25"
+                app:layout_constraintEnd_toStartOf="@+id/guideline15"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toTopOf="@+id/guideline24" />
 
         <TextView
-            android:id="@+id/heroStats_lvlXpTillNextLevel"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@{stats.expTillNextLvl}"
-            app:autoSizeMaxTextSize="15sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline22"
-            app:layout_constraintEnd_toStartOf="@+id/guideline14"
-            app:layout_constraintStart_toStartOf="@+id/guideline19"
-            app:layout_constraintTop_toTopOf="@+id/guideline17" />
+                android:id="@+id/heroStats_lvlXpTillNextLevel"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(stats.expTillNextLvl)}"
+                app:autoSizeMaxTextSize="15sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline22"
+                app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                app:layout_constraintStart_toStartOf="@+id/guideline19"
+                app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
         <TextView
-            android:id="@+id/heroStats_textViewLvl"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@string/lvl"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline17"
-            app:layout_constraintEnd_toStartOf="@+id/guideline16"
-            app:layout_constraintStart_toStartOf="@+id/guideline13"
-            app:layout_constraintTop_toTopOf="@+id/guideline32" />
+                android:id="@+id/heroStats_textViewLvl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/lvl"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline17"
+                app:layout_constraintEnd_toStartOf="@+id/guideline16"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toTopOf="@+id/guideline32" />
 
         <TextView
-            android:id="@+id/heroProfile_strenghTextView2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="start|center_vertical"
-            android:text="@string/strength"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline21"
-            app:layout_constraintEnd_toStartOf="@+id/guideline15"
-            app:layout_constraintStart_toStartOf="@+id/guideline13"
-            app:layout_constraintTop_toTopOf="@+id/guideline12"
-            app:layout_constraintVertical_bias="0.347" />
+                android:id="@+id/heroProfile_strenghTextView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="start|center_vertical"
+                android:text="@string/strength"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline21"
+                app:layout_constraintEnd_toStartOf="@+id/guideline15"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toTopOf="@+id/guideline12"
+                app:layout_constraintVertical_bias="0.347" />
 
         <TextView
-            android:id="@+id/heroProfile_intelligenceTextView2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="start|center_vertical"
-            android:text="@string/intelligence"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline24"
-            app:layout_constraintEnd_toStartOf="@+id/guideline15"
-            app:layout_constraintStart_toStartOf="@+id/guideline13"
-            app:layout_constraintTop_toTopOf="@+id/guideline23" />
+                android:id="@+id/heroProfile_intelligenceTextView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="start|center_vertical"
+                android:text="@string/intelligence"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline24"
+                app:layout_constraintEnd_toStartOf="@+id/guideline15"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toTopOf="@+id/guideline23" />
 
         <TextView
-            android:id="@+id/heroProfile_speedTextView2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="start|center_vertical"
-            android:text="@string/speed"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline20"
-            app:layout_constraintEnd_toStartOf="@+id/guideline15"
-            app:layout_constraintStart_toStartOf="@+id/guideline13"
-            app:layout_constraintTop_toTopOf="@+id/guideline25" />
+                android:id="@+id/heroProfile_speedTextView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="start|center_vertical"
+                android:text="@string/speed"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline20"
+                app:layout_constraintEnd_toStartOf="@+id/guideline15"
+                app:layout_constraintStart_toStartOf="@+id/guideline13"
+                app:layout_constraintTop_toTopOf="@+id/guideline25" />
 
         <TextView
-            android:id="@+id/heroStats_constitution"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center"
-            android:text="@{stats.constitution}"
-            app:autoSizeMaxTextSize="20sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintBottom_toTopOf="@+id/guideline25"
-            app:layout_constraintEnd_toStartOf="@+id/guideline18"
-            app:layout_constraintStart_toStartOf="@+id/guideline15"
-            app:layout_constraintTop_toTopOf="@+id/guideline24" />
+                android:id="@+id/heroStats_constitution"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@{String.valueOf(stats.constitution)}"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/guideline25"
+                app:layout_constraintEnd_toStartOf="@+id/guideline18"
+                app:layout_constraintStart_toStartOf="@+id/guideline15"
+                app:layout_constraintTop_toTopOf="@+id/guideline24" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.3" />
+                android:id="@+id/guideline12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.3" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.02" />
+                android:id="@+id/guideline13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.02" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.98" />
+                android:id="@+id/guideline14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.98" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.3" />
+                android:id="@+id/guideline15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="76dp" />
+                android:id="@+id/guideline16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="76dp" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.14925373" />
+                android:id="@+id/guideline17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.14925373" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
+                android:id="@+id/guideline18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.86" />
+                android:id="@+id/guideline19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.86" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.95" />
+                android:id="@+id/guideline20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.95" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.43" />
+                android:id="@+id/guideline21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.43" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.25" />
+                android:id="@+id/guideline22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.25" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline23"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.56" />
+                android:id="@+id/guideline23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.56" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.69" />
+                android:id="@+id/guideline24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.69" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline25"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.82" />
+                android:id="@+id/guideline25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.82" />
 
         <com.github.mikephil.charting.charts.RadarChart
-            android:id="@+id/heroStats_statsChart"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline14"
-            app:layout_constraintStart_toStartOf="@+id/guideline18"
-            app:layout_constraintTop_toTopOf="@+id/guideline12">
+                android:id="@+id/heroStats_statsChart"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                app:layout_constraintStart_toStartOf="@+id/guideline18"
+                app:layout_constraintTop_toTopOf="@+id/guideline12">
 
         </com.github.mikephil.charting.charts.RadarChart>
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.04" />
+                android:id="@+id/guideline32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.04" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

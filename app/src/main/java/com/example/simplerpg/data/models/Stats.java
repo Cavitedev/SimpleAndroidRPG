@@ -103,6 +103,7 @@ public class Stats {
         return percentage;
     }
 
+
     public int getExpTillNextLvl() {
         int nextLvl = (int) Math.sqrt(xp / HERO_LVL_PROGRESSION_RATE) + 1;
         int xpNextLvl = (int) (HERO_LVL_PROGRESSION_RATE * Math.pow(nextLvl, 2));
