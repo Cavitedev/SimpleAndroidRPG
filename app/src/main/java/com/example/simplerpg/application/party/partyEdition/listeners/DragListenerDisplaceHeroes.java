@@ -24,7 +24,7 @@ public class DragListenerDisplaceHeroes implements View.OnDragListener {
                 undoInvisibility(firstFragmentView);
                 break;
             case DragEvent.ACTION_DROP:
-                performHerosSwitch((ViewGroup) view, firstFragmentView);
+                performHeroesSwitch((ViewGroup) view, firstFragmentView);
                 break;
             default:
                 break;
@@ -36,7 +36,7 @@ public class DragListenerDisplaceHeroes implements View.OnDragListener {
         view.setVisibility(View.VISIBLE);
     }
 
-    private void performHerosSwitch(ViewGroup secondContainer, View firstFragmentView) {
+    private void performHeroesSwitch(ViewGroup secondContainer, View firstFragmentView) {
         ViewGroup firstContainer = (ViewGroup) firstFragmentView.getParent();
         firstContainer.removeView(firstFragmentView);
 

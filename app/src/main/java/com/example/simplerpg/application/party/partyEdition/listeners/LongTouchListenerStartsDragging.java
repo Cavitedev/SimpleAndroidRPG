@@ -2,7 +2,6 @@ package com.example.simplerpg.application.party.partyEdition.listeners;
 
 import android.content.ClipData;
 import android.view.View;
-import android.view.ViewParent;
 
 public class LongTouchListenerStartsDragging implements View.OnLongClickListener {
 

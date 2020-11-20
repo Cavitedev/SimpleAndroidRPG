@@ -13,10 +13,10 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.domain.models.Hero;
-import com.example.simplerpg.databinding.ActivityHeroProfileBinding;
-import com.example.simplerpg.application.party.partyEdition.heroProfile.skills.SkillsTreesActivity;
 import com.example.simplerpg.application.party.partyEdition.heroProfile.properties.HeroPropertiesFragment;
+import com.example.simplerpg.application.party.partyEdition.heroProfile.skills.SkillsTreesActivity;
+import com.example.simplerpg.databinding.ActivityHeroProfileBinding;
+import com.example.simplerpg.domain.models.Hero;
 import com.google.gson.Gson;
 
 public class HeroProfileActivity extends AppCompatActivity {
@@ -46,7 +46,7 @@ public class HeroProfileActivity extends AppCompatActivity {
     }
 
     private void updateComponents(Hero hero) {
-        String uri = "@drawable/" + hero.getImage();  // where myresource (without the extension) is the file
+        String uri = "@drawable/" + hero.getImage();
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         Resources resources = getResources();
         Drawable drawable = ResourcesCompat.getDrawable(resources, imageResource, null);
