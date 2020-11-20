@@ -109,10 +109,7 @@ public class Stats {
         return percentage;
     }
 
-    @BindingAdapter("rcProgress")
-    public static void bindXpPercentage(Context context, RoundCornerProgressBar bar, float value){
-        bar.setProgress(value);
-    }
+
 
 
     public int getExpTillNextLvl() {
