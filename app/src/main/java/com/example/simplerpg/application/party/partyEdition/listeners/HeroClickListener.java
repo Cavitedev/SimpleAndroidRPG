@@ -1,4 +1,4 @@
-package com.example.simplerpg.listeners;
+package com.example.simplerpg.application.party.partyEdition.listeners;
 
 import android.content.Intent;
 import android.view.View;

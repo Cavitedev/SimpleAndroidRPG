@@ -13,9 +13,9 @@ import androidx.fragment.app.Fragment;
 import com.example.simplerpg.R;
 import com.example.simplerpg.domain.models.Hero;
 import com.example.simplerpg.domain.models.Party;
-import com.example.simplerpg.listeners.HeroClickListener;
-import com.example.simplerpg.listeners.DragListener;
-import com.example.simplerpg.listeners.LongTouchListener;
+import com.example.simplerpg.application.party.partyEdition.listeners.HeroClickListener;
+import com.example.simplerpg.application.party.partyEdition.listeners.DragListenerDisplaceHeroes;
+import com.example.simplerpg.application.party.partyEdition.listeners.LongTouchListenerStartsDragging;
 
 
 public class PartyEditionFragment extends Fragment {
@@ -24,8 +24,8 @@ public class PartyEditionFragment extends Fragment {
 
     private Context context;
 
-    private LongTouchListener longTouchListener;
-    private DragListener dragListener;
+    private LongTouchListenerStartsDragging longTouchListenerStartsDragging;
+    private DragListenerDisplaceHeroes dragListenerDisplaceHeroes;
     private HeroClickListener heroClickListener;
 
 
@@ -61,18 +61,15 @@ public class PartyEditionFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setPartyHeroesInTheirPosition();
     }
-
-    public void updateUI() {
-
-    }
+    
 
     private void setPartyHeroesInTheirPosition() {
 
         FrameLayout frameLayout = getView().findViewById(R.id.upLeft);
         HeroFragment heroFragment = (HeroFragment) getFragmentManager().findFragmentById(R.id.upLeftFragment);
 
-        longTouchListener = new LongTouchListener();
-        dragListener = new DragListener(longTouchListener, party);
+        longTouchListenerStartsDragging = new LongTouchListenerStartsDragging();
+        dragListenerDisplaceHeroes = new DragListenerDisplaceHeroes(party);
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
@@ -123,12 +120,12 @@ public class PartyEditionFragment extends Fragment {
 
                 if (context == Context.FORMATION) {
 
-                    frameLayout.setOnDragListener(dragListener);
+                    frameLayout.setOnDragListener(dragListenerDisplaceHeroes);
 
                     if (hero != null) {
                         heroClickListener = new HeroClickListener(hero, this);
                         heroFragment.getView().setOnClickListener(heroClickListener);
-                        heroFragment.getView().setOnLongClickListener(longTouchListener);
+                        heroFragment.getView().setOnLongClickListener(longTouchListenerStartsDragging);
                     }
                 }
             }

@@ -1,12 +1,12 @@
-package com.example.simplerpg.listeners;
+package com.example.simplerpg.application.party.partyEdition.listeners;
 
 import android.content.ClipData;
 import android.view.View;
 import android.view.ViewParent;
 
-public class LongTouchListener implements View.OnLongClickListener {
+public class LongTouchListenerStartsDragging implements View.OnLongClickListener {
 
-    private ViewParent viewParent;
+
 
     @Override
     public boolean onLongClick(View view) {
@@ -15,11 +15,7 @@ public class LongTouchListener implements View.OnLongClickListener {
         view.startDrag(data, shadowBuilder, view, 0);
         view.setVisibility(View.INVISIBLE);
 
-        viewParent = view.getParent();
         return true;
     }
 
-    public ViewParent getViewParent() {
-        return viewParent;
-    }
 }

@@ -1,4 +1,4 @@
-package com.example.simplerpg.listeners;
+package com.example.simplerpg.application.party.partyEdition.listeners;
 
 import android.view.DragEvent;
 import android.view.View;
@@ -7,13 +7,11 @@ import android.view.ViewGroup;
 import com.example.simplerpg.R;
 import com.example.simplerpg.domain.models.Party;
 
-public class DragListener implements View.OnDragListener {
+public class DragListenerDisplaceHeroes implements View.OnDragListener {
 
-    private LongTouchListener myLongTouchListener;
-    private Party party;
+    private final Party party;
 
-    public DragListener(LongTouchListener myLongTouchListener, Party party) {
-        this.myLongTouchListener = myLongTouchListener;
+    public DragListenerDisplaceHeroes(Party party) {
         this.party = party;
     }
 
