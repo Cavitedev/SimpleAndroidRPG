@@ -1,18 +1,19 @@
 package com.example.simplerpg.domain.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AbilitiesLearned {
-    ArrayList<Ability> abilities = new ArrayList();
+    List<Ability> abilities = new ArrayList();
 
     public AbilitiesLearned() {
     }
 
-    public AbilitiesLearned(ArrayList<Ability> abilities) {
+    public AbilitiesLearned(List<Ability> abilities) {
         this.abilities = abilities;
     }
 
-    public ArrayList<Ability> getAbilities() {
+    public List<Ability> getAbilities() {
         return abilities;
     }
 

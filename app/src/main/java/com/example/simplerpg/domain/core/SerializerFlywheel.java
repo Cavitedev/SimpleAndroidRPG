@@ -16,7 +16,7 @@ public abstract class SerializerFlywheel<T extends IIdentifieable<I>,I> {
 
      public SerializerFlywheel(String json) {
           Type type = new TypeToken<List<T>>(){}.getType();
-          ArrayList<T> objects =  new Gson().fromJson(json, type);
+          List<T> objects =  new Gson().fromJson(json, type);
           cache = new HashMap<>();
           for(int i = 0; i<objects.size(); i++){
                cache.put(objects.get(i).getId(), objects.get(i));

@@ -2,6 +2,7 @@ package com.example.simplerpg.domain.models;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Party {
     private static Party party = null;
@@ -38,7 +39,7 @@ public class Party {
         return heroesCount;
     }
 
-    public void addHeroes(ArrayList<Hero> heroes) {
+    public void addHeroes(List<Hero> heroes) {
         int heroN = 0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++, heroN++) {
@@ -121,7 +122,7 @@ public class Party {
     public static Party defaultParty() {
         Party party = new Party();
 
-        ArrayList<Ability> abilities = new ArrayList<>();
+        List<Ability> abilities = new ArrayList<>();
         abilities.add(new Ability(null, "FireBall", "Launches a fire ball", Ability.Type.Special, 80));
         abilities.add(new Ability(null, "Big Kick", "Gives a strong Kick", Ability.Type.Physical, 100));
         AbilitiesLearned abilitiesLearned = new AbilitiesLearned(abilities);
@@ -134,7 +135,7 @@ public class Party {
         Hero exampleHero2 = new Hero(null, "Berserker", "hero15", exampleStats2, abilitiesLearned);
         Hero exampleHero3 = new Hero(null, "Mague", "hero6", exampleStats3, abilitiesLearned);
 
-        ArrayList<Hero> heroes = new ArrayList<>();
+        List<Hero> heroes = new ArrayList<>();
         heroes.add(exampleHero);
         heroes.add(exampleHero1);
         heroes.add(exampleHero2);
@@ -145,7 +146,7 @@ public class Party {
     }
 
     public Stats getAverageStats() {
-        ArrayList<Stats> heroesStats = new ArrayList<>();
+        List<Stats> heroesStats = new ArrayList<>();
         int heroesCount = 0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {

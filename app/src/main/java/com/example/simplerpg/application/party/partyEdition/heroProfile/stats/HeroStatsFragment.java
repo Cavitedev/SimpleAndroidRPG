@@ -23,6 +23,7 @@ import com.github.mikephil.charting.data.RadarDataSet;
 import com.github.mikephil.charting.data.RadarEntry;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HeroStatsFragment extends Fragment {
 
@@ -123,7 +124,7 @@ public class HeroStatsFragment extends Fragment {
 
     private void updateStatsChart() {
 
-        ArrayList<RadarEntry> radarStats = new ArrayList<>();
+        List<RadarEntry> radarStats = new ArrayList<>();
 
         radarStats.add(new RadarEntry(stats.getStrength()));
         radarStats.add(new RadarEntry(stats.getDexterity()));
