@@ -14,7 +14,7 @@
         <activity android:name=".application.party.partyCreation.HeroImageSelectionActivity" />
         <activity android:name=".application.party.partyEdition.PartyEditionFormationSelectionActivity" />
         <activity android:name=".application.battle.BattleActivity" />
-        <activity android:name=".application.SkillsTreesActivity" />
+        <activity android:name=".application.party.partyEdition.heroProfile.skills.SkillsTreesActivity" />
         <activity android:name=".application.party.partyEdition.heroProfile.HeroProfileActivity" />
         <activity
             android:name=".application.MainActivity"

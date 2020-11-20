@@ -1,4 +1,4 @@
-package com.example.simplerpg.adapters;
+package com.example.simplerpg.application.party.partyEdition.heroProfile.abilities;
 
 import android.content.Context;
 import android.view.LayoutInflater;

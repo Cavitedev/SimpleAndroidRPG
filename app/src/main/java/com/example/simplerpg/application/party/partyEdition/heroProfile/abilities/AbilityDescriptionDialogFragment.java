@@ -1,4 +1,4 @@
-package com.example.simplerpg.application.party.partyEdition.heroProfile.heroAbilities;
+package com.example.simplerpg.application.party.partyEdition.heroProfile.abilities;
 
 import android.app.Activity;
 import android.app.AlertDialog;

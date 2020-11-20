@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.adapters.HeroImageAdapter;
 
 import java.lang.reflect.Field;
 

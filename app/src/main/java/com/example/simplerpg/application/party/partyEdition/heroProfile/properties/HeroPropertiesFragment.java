@@ -1,4 +1,4 @@
-package com.example.simplerpg.application.party.partyEdition.heroProfile.heroProperties;
+package com.example.simplerpg.application.party.partyEdition.heroProfile.properties;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.adapters.HeroPropertiesPageAdapter;
 import com.example.simplerpg.domain.models.Hero;
 import com.google.android.material.tabs.TabLayout;
 

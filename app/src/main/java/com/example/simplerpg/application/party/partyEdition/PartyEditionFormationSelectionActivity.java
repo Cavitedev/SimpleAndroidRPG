@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
 import com.example.simplerpg.domain.models.Party;
-import com.example.simplerpg.application.party.partyEdition.heroProfile.heroProperties.HeroStatsFragment;
+import com.example.simplerpg.application.party.partyEdition.heroProfile.stats.HeroStatsFragment;
 
 public class PartyEditionFormationSelectionActivity extends AppCompatActivity {
 

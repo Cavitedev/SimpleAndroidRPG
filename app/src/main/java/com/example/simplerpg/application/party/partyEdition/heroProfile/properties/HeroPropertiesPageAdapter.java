@@ -1,4 +1,4 @@
-package com.example.simplerpg.adapters;
+package com.example.simplerpg.application.party.partyEdition.heroProfile.properties;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.simplerpg.application.party.partyEdition.heroProfile.stats.HeroStatsFragment;
 import com.example.simplerpg.domain.models.Hero;
-import com.example.simplerpg.application.party.partyEdition.heroProfile.heroAbilities.HeroAbilitiesFragment;
-import com.example.simplerpg.application.party.partyEdition.heroProfile.heroProperties.HeroStatsFragment;
+import com.example.simplerpg.application.party.partyEdition.heroProfile.abilities.HeroAbilitiesFragment;
 
 public class HeroPropertiesPageAdapter extends FragmentPagerAdapter {
     private Hero hero;

@@ -1,4 +1,4 @@
-package com.example.simplerpg.application.party.partyEdition.heroProfile.heroProperties;
+package com.example.simplerpg.application.party.partyEdition.heroProfile.stats;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.chartCustom.StatsValueFormatter;
 import com.example.simplerpg.domain.models.Stats;
 import com.example.simplerpg.databinding.FragmentHeroStatsBinding;
 import com.github.mikephil.charting.charts.RadarChart;

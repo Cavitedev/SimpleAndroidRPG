@@ -1,4 +1,4 @@
-package com.example.simplerpg.application;
+package com.example.simplerpg.application.party.partyEdition.heroProfile.skills;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.adapters.AbilityTreePageAdapter;
+import com.example.simplerpg.application.party.partyEdition.heroProfile.abilities.AbilityTreePageAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SkillsTreesActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {

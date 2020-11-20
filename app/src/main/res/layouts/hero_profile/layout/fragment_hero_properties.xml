@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".application.party.partyEdition.heroProfile.heroProperties.HeroPropertiesFragment">
+    tools:context=".application.party.partyEdition.heroProfile.properties.HeroPropertiesFragment">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/heroProperties_tabLayout"

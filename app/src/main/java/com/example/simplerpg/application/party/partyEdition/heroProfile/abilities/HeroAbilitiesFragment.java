@@ -1,4 +1,4 @@
-package com.example.simplerpg.application.party.partyEdition.heroProfile.heroAbilities;
+package com.example.simplerpg.application.party.partyEdition.heroProfile.abilities;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.adapters.AbilitiesAdapter;
 import com.example.simplerpg.domain.models.AbilitiesLearned;
 import com.example.simplerpg.domain.models.Ability;
 

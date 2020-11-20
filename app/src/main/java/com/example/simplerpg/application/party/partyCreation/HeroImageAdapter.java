@@ -1,4 +1,4 @@
-package com.example.simplerpg.adapters;
+package com.example.simplerpg.application.party.partyCreation;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -15,8 +15,8 @@ import androidx.fragment.app.Fragment;
 import com.example.simplerpg.R;
 import com.example.simplerpg.domain.models.Hero;
 import com.example.simplerpg.databinding.ActivityHeroProfileBinding;
-import com.example.simplerpg.application.SkillsTreesActivity;
-import com.example.simplerpg.application.party.partyEdition.heroProfile.heroProperties.HeroPropertiesFragment;
+import com.example.simplerpg.application.party.partyEdition.heroProfile.skills.SkillsTreesActivity;
+import com.example.simplerpg.application.party.partyEdition.heroProfile.properties.HeroPropertiesFragment;
 import com.google.gson.Gson;
 
 public class HeroProfileActivity extends AppCompatActivity {
