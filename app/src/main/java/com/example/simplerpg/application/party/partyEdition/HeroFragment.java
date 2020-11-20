@@ -16,11 +16,6 @@ import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.example.simplerpg.R;
 import com.example.simplerpg.domain.models.Hero;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HeroFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class HeroFragment extends Fragment {
 
     private Hero hero;
@@ -30,7 +25,6 @@ public class HeroFragment extends Fragment {
     private RoundCornerProgressBar healthProgressBar;
 
     public HeroFragment() {
-        // Required empty public constructor
     }
 
     public static HeroFragment newInstance(Hero hero) {
@@ -47,7 +41,6 @@ public class HeroFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_hero, container, false);
     }
 

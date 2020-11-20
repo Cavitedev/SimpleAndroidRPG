@@ -11,11 +11,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
+import com.example.simplerpg.application.party.partyEdition.listeners.DragListenerDisplaceHeroes;
+import com.example.simplerpg.application.party.partyEdition.listeners.HeroClickListener;
+import com.example.simplerpg.application.party.partyEdition.listeners.LongTouchListenerStartsDragging;
 import com.example.simplerpg.domain.models.Hero;
 import com.example.simplerpg.domain.models.Party;
-import com.example.simplerpg.application.party.partyEdition.listeners.HeroClickListener;
-import com.example.simplerpg.application.party.partyEdition.listeners.DragListenerDisplaceHeroes;
-import com.example.simplerpg.application.party.partyEdition.listeners.LongTouchListenerStartsDragging;
 
 
 public class PartyEditionFragment extends Fragment {
@@ -34,7 +34,6 @@ public class PartyEditionFragment extends Fragment {
     }
 
     public PartyEditionFragment() {
-        // Required empty public constructor
     }
 
     public static PartyEditionFragment newInstance(Party party, Context context) {
@@ -52,7 +51,6 @@ public class PartyEditionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_party_grid, container, false);
     }
 

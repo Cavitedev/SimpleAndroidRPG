@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.domain.models.Stats;
 import com.example.simplerpg.databinding.FragmentHeroStatsBinding;
+import com.example.simplerpg.domain.models.Stats;
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.MarkerView;
@@ -37,7 +37,6 @@ public class HeroStatsFragment extends Fragment {
     }
 
     public HeroStatsFragment() {
-        // Required empty public constructor
     }
 
     public static HeroStatsFragment newInstance(Stats stats, Context context) {

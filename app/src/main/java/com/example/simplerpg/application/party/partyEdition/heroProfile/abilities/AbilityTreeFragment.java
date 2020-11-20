@@ -16,17 +16,11 @@ import de.blox.treeview.BaseTreeAdapter;
 import de.blox.treeview.TreeNode;
 import de.blox.treeview.TreeView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AbilityTreeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AbilityTreeFragment extends Fragment {
     //TODO ability trees
     private int nodeCount = 0;
 
     public AbilityTreeFragment() {
-        // Required empty public constructor
     }
 
     public static AbilityTreeFragment newInstance(Bundle bundle) {
@@ -44,7 +38,6 @@ public class AbilityTreeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_ability_tree, container, false);
     }
 
@@ -67,7 +60,6 @@ public class AbilityTreeFragment extends Fragment {
         };
         treeView.setAdapter(adapter);
 
-        // example tree
         TreeNode rootNode = new TreeNode(getNodeText());
         final TreeNode root1child1 = new TreeNode(getNodeText());
         rootNode.addChild(root1child1);

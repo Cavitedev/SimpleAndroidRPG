@@ -12,15 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.simplerpg.R;
 import com.example.simplerpg.domain.models.Ability;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class AbilitiesAdapter extends RecyclerView.Adapter<AbilitiesAdapter.ViewHolderData> {
 
-    private ArrayList<Ability> abilities;
+    private List<Ability> abilities;
     private Context context;
     private OnElementListener onElementListener;
 
-    public AbilitiesAdapter(Context context, ArrayList<Ability> abilities, OnElementListener onElementListener) {
+    public AbilitiesAdapter(Context context, List<Ability> abilities, OnElementListener onElementListener) {
         this.context = context;
         this.abilities = abilities;
         this.onElementListener = onElementListener;
