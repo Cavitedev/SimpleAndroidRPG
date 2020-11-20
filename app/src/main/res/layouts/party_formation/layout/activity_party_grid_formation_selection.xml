@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".application.partyGrid.PartyGridFormationSelectionActivity">
+    tools:context=".application.party.partyEdition.PartyEditionFormationSelectionActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/my_toolbar"

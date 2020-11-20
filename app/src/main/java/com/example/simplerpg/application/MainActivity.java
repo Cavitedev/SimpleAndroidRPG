@@ -10,8 +10,8 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.simplerpg.R;
 import com.example.simplerpg.domain.models.Party;
 import com.example.simplerpg.application.battle.BattleActivity;
-import com.example.simplerpg.application.partyCreation.PartyCreationActivity;
-import com.example.simplerpg.application.partyGrid.PartyGridFormationSelectionActivity;
+import com.example.simplerpg.application.party.partyCreation.PartyCreationActivity;
+import com.example.simplerpg.application.party.partyEdition.PartyEditionFormationSelectionActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonGoToPartyFormation(View view) {
-        Intent partyGrid = new Intent(this, PartyGridFormationSelectionActivity.class);
+        Intent partyGrid = new Intent(this, PartyEditionFormationSelectionActivity.class);
         startActivity(partyGrid);
     }
 

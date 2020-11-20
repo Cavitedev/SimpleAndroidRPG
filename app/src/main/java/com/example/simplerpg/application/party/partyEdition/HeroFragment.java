@@ -1,4 +1,4 @@
-package com.example.simplerpg.application.partyGrid;
+package com.example.simplerpg.application.party.partyEdition;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;

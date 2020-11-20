@@ -1,4 +1,4 @@
-package com.example.simplerpg.application.partyCreation;
+package com.example.simplerpg.application.party.partyCreation;
 
 import android.app.Activity;
 import android.content.Intent;

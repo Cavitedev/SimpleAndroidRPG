@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:hardwareAccelerated="true">
-        <activity android:name=".application.partyCreation.PartyCreationActivity"></activity>
-        <activity android:name=".application.partyCreation.HeroImageSelectionActivity" />
-        <activity android:name=".application.partyGrid.PartyGridFormationSelectionActivity" />
+        <activity android:name=".application.party.partyCreation.PartyCreationActivity"></activity>
+        <activity android:name=".application.party.partyCreation.HeroImageSelectionActivity" />
+        <activity android:name=".application.party.partyEdition.PartyEditionFormationSelectionActivity" />
         <activity android:name=".application.battle.BattleActivity" />
         <activity android:name=".application.SkillsTreesActivity" />
-        <activity android:name=".application.heroProfile.HeroProfileActivity" />
+        <activity android:name=".application.party.partyEdition.heroProfile.HeroProfileActivity" />
         <activity
             android:name=".application.MainActivity"
             android:theme="@style/SplashTheme">

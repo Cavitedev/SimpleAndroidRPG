@@ -1,4 +1,4 @@
-package com.example.simplerpg.application.heroProfile;
+package com.example.simplerpg.application.party.partyEdition.heroProfile;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -16,7 +16,7 @@ import com.example.simplerpg.R;
 import com.example.simplerpg.domain.models.Hero;
 import com.example.simplerpg.databinding.ActivityHeroProfileBinding;
 import com.example.simplerpg.application.SkillsTreesActivity;
-import com.example.simplerpg.application.heroProfile.heroProperties.HeroPropertiesFragment;
+import com.example.simplerpg.application.party.partyEdition.heroProfile.heroProperties.HeroPropertiesFragment;
 import com.google.gson.Gson;
 
 public class HeroProfileActivity extends AppCompatActivity {
@@ -30,7 +30,7 @@ public class HeroProfileActivity extends AppCompatActivity {
         ActivityHeroProfileBinding binding =
                 DataBindingUtil.setContentView(this, R.layout.activity_hero_profile);
 
-        hero = new Gson().fromJson(getIntent().getStringExtra("hero"), Hero.class);
+        hero = new Gson().fromJson(getIntent().getStringExtra(getString(R.string.hero)), Hero.class);
 
         Fragment fragment = HeroPropertiesFragment.newInstance(hero);
         getSupportFragmentManager().beginTransaction().add(R.id.heroProfile_fragmentContainerHeroProperties, fragment).commit();

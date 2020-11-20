@@ -20,5 +20,6 @@
     <string name="points_remaining_toast"> points remaining</string>
     <string name="minimum_stat_toast">Minimum stat value is </string>
     <string name="no_points_remaining_toast">No points remaining</string>
+    <string name="hero">hero</string>
 
 </resources>

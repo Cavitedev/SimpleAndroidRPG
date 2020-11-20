@@ -1,4 +1,4 @@
-package com.example.simplerpg.application.heroProfile.heroProperties;
+package com.example.simplerpg.application.party.partyEdition.heroProfile.heroProperties;
 
 import android.graphics.Color;
 import android.os.Bundle;

@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".application.heroProfile.heroProperties.HeroStatsFragment">
+            tools:context=".application.party.partyEdition.heroProfile.heroProperties.HeroStatsFragment">
 
         <TextView
                 android:id="@+id/heroStats_intelligence"

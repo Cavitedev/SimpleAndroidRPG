@@ -1,6 +1,5 @@
-package com.example.simplerpg.application.partyGrid;
+package com.example.simplerpg.application.party.partyEdition;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,14 +13,12 @@ import androidx.fragment.app.Fragment;
 import com.example.simplerpg.R;
 import com.example.simplerpg.domain.models.Hero;
 import com.example.simplerpg.domain.models.Party;
-import com.example.simplerpg.listeners.ClickListener;
+import com.example.simplerpg.listeners.HeroClickListener;
 import com.example.simplerpg.listeners.DragListener;
 import com.example.simplerpg.listeners.LongTouchListener;
-import com.example.simplerpg.application.heroProfile.HeroProfileActivity;
-import com.google.gson.Gson;
 
 
-public class PartyGridFragment extends Fragment implements ClickListener.OnElementListener {
+public class PartyEditionFragment extends Fragment {
 
     private Party party;
 
@@ -29,19 +26,19 @@ public class PartyGridFragment extends Fragment implements ClickListener.OnEleme
 
     private LongTouchListener longTouchListener;
     private DragListener dragListener;
-    private ClickListener clickListener;
+    private HeroClickListener heroClickListener;
 
 
     public enum Context {
         COMBAT, FORMATION;
     }
 
-    public PartyGridFragment() {
+    public PartyEditionFragment() {
         // Required empty public constructor
     }
 
-    public static PartyGridFragment newInstance(Party party, Context context) {
-        PartyGridFragment fragment = new PartyGridFragment();
+    public static PartyEditionFragment newInstance(Party party, Context context) {
+        PartyEditionFragment fragment = new PartyEditionFragment();
         fragment.party = party;
         fragment.context = context;
         return fragment;
@@ -129,20 +126,12 @@ public class PartyGridFragment extends Fragment implements ClickListener.OnEleme
                     frameLayout.setOnDragListener(dragListener);
 
                     if (hero != null) {
-                        clickListener = new ClickListener(hero, this);
-                        heroFragment.getView().setOnClickListener(clickListener);
+                        heroClickListener = new HeroClickListener(hero, this);
+                        heroFragment.getView().setOnClickListener(heroClickListener);
                         heroFragment.getView().setOnLongClickListener(longTouchListener);
                     }
                 }
             }
         }
     }
-
-    @Override
-    public void onElementClick(Hero hero) {
-        Intent heroProfile = new Intent(this.getActivity(), HeroProfileActivity.class);
-        heroProfile.putExtra("hero", new Gson().toJson(hero));
-        startActivity(heroProfile);
-    }
-
 }

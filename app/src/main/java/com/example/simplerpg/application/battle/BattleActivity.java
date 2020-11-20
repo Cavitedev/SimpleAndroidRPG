@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.simplerpg.R;
 import com.example.simplerpg.domain.models.Party;
-import com.example.simplerpg.application.partyGrid.PartyGridFragment;
+import com.example.simplerpg.application.party.partyEdition.PartyEditionFragment;
 
 public class BattleActivity extends AppCompatActivity {
 
@@ -20,7 +20,7 @@ public class BattleActivity extends AppCompatActivity {
 
         party = Party.getParty();
 
-        Fragment partyGridFragment = PartyGridFragment.newInstance(party, PartyGridFragment.Context.COMBAT);
+        Fragment partyGridFragment = PartyEditionFragment.newInstance(party, PartyEditionFragment.Context.COMBAT);
         getSupportFragmentManager().beginTransaction().add(R.id.battle_frameLayoutPlayerParty, partyGridFragment).commit();
     }
 }
