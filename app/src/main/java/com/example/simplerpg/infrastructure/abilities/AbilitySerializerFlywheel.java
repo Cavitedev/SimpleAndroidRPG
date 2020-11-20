@@ -1,6 +1,6 @@
 package com.example.simplerpg.infrastructure.abilities;
 
-import com.example.simplerpg.domain.factories.SerializerFlywheel;
+import com.example.simplerpg.domain.core.SerializerFlywheel;
 import com.example.simplerpg.domain.models.Ability;
 
 

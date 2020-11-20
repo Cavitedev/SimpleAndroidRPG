@@ -1,7 +1,5 @@
-package com.example.simplerpg.domain.factories;
+package com.example.simplerpg.domain.core;
 
-import com.example.simplerpg.domain.IIdentifieable;
-import com.example.simplerpg.domain.models.Stats;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

@@ -5,7 +5,6 @@ import android.content.Context;
 import androidx.databinding.BindingAdapter;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-import com.example.simplerpg.domain.IIdentifieable;
 
 public class Stats {
 

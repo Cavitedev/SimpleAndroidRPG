@@ -1,4 +1,4 @@
-package com.example.simplerpg.domain;
+package com.example.simplerpg.domain.core;
 
 public interface IIdentifieable<T> {
 

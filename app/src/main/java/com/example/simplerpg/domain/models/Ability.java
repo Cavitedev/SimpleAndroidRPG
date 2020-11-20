@@ -1,6 +1,6 @@
 package com.example.simplerpg.domain.models;
 
-import com.example.simplerpg.domain.IIdentifieable;
+import com.example.simplerpg.domain.core.IIdentifieable;
 
 public class Ability implements IIdentifieable<Integer> {
     private Integer id;
