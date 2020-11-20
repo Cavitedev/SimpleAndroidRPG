@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.simplerpg.data.models.Hero;
-import com.example.simplerpg.ui.heroProfile.heroProperties.HeroAbilitiesFragment;
-import com.example.simplerpg.ui.heroProfile.heroProperties.HeroStatsFragment;
+import com.example.simplerpg.domain.models.Hero;
+import com.example.simplerpg.application.heroProfile.heroProperties.HeroAbilitiesFragment;
+import com.example.simplerpg.application.heroProfile.heroProperties.HeroStatsFragment;
 
 public class HeroPropertiesPageAdapter extends FragmentPagerAdapter {
     private Hero hero;

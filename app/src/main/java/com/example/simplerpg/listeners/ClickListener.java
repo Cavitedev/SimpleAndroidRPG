@@ -2,7 +2,7 @@ package com.example.simplerpg.listeners;
 
 import android.view.View;
 
-import com.example.simplerpg.data.models.Hero;
+import com.example.simplerpg.domain.models.Hero;
 
 public class ClickListener implements View.OnClickListener {
 

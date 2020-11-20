@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.simplerpg.R;
-import com.example.simplerpg.data.models.Ability;
+import com.example.simplerpg.domain.models.Ability;
 
 import java.util.ArrayList;
 

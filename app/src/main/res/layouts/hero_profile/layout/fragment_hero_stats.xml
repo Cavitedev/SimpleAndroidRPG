@@ -7,13 +7,13 @@
 
         <variable
                 name="stats"
-                type="com.example.simplerpg.data.models.Stats" />
+                type="com.example.simplerpg.domain.models.Stats" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.heroProfile.heroProperties.HeroStatsFragment">
+            tools:context=".application.heroProfile.heroProperties.HeroStatsFragment">
 
         <TextView
                 android:id="@+id/heroStats_intelligence"

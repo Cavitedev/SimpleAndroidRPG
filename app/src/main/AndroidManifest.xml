@@ -10,14 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:hardwareAccelerated="true">
-        <activity android:name=".ui.partyCreation.PartyCreationActivity"></activity>
-        <activity android:name=".ui.partyCreation.HeroImageSelectionActivity" />
-        <activity android:name=".ui.partyGrid.PartyGridFormationSelectionActivity" />
-        <activity android:name=".ui.battle.BattleActivity" />
-        <activity android:name=".ui.SkillsTreesActivity" />
-        <activity android:name=".ui.heroProfile.HeroProfileActivity" />
+        <activity android:name=".application.partyCreation.PartyCreationActivity"></activity>
+        <activity android:name=".application.partyCreation.HeroImageSelectionActivity" />
+        <activity android:name=".application.partyGrid.PartyGridFormationSelectionActivity" />
+        <activity android:name=".application.battle.BattleActivity" />
+        <activity android:name=".application.SkillsTreesActivity" />
+        <activity android:name=".application.heroProfile.HeroProfileActivity" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".application.MainActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

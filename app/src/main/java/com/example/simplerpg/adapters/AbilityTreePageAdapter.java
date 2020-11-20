@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.simplerpg.ui.heroProfile.heroProperties.AbilityTreeFragment;
+import com.example.simplerpg.application.heroProfile.heroProperties.AbilityTreeFragment;
 
 public class AbilityTreePageAdapter extends FragmentPagerAdapter {
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.partyGrid.PartyGridFragment">
+    tools:context=".application.partyGrid.PartyGridFragment">
 
     <LinearLayout
         android:id="@+id/gridLayout"
@@ -38,7 +38,7 @@
                     android:id="@+id/upLeftFragment"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+                    android:name="com.example.simplerpg.application.partyGrid.HeroFragment" />
 
             </FrameLayout>
 
@@ -56,7 +56,7 @@
                     android:id="@+id/upCenterFragment"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+                    android:name="com.example.simplerpg.application.partyGrid.HeroFragment" />
 
             </FrameLayout>
 
@@ -74,7 +74,7 @@
                     android:id="@+id/upRightFragment"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+                    android:name="com.example.simplerpg.application.partyGrid.HeroFragment" />
 
             </FrameLayout>
 
@@ -101,7 +101,7 @@
                     android:id="@+id/downLeftFragment"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+                    android:name="com.example.simplerpg.application.partyGrid.HeroFragment" />
 
             </FrameLayout>
 
@@ -119,7 +119,7 @@
                     android:id="@+id/downCenterFragment"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+                    android:name="com.example.simplerpg.application.partyGrid.HeroFragment" />
 
             </FrameLayout>
 
@@ -137,7 +137,7 @@
                     android:id="@+id/downRightFragment"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
-                    android:name="com.example.simplerpg.ui.partyGrid.HeroFragment" />
+                    android:name="com.example.simplerpg.application.partyGrid.HeroFragment" />
 
             </FrameLayout>
 
